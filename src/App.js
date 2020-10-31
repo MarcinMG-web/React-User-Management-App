@@ -4,17 +4,22 @@ import '../node_modules/bootstrap/dist/css/bootstrap.css'
 import Home from './components/Home'
 import About from './components/About'
 import Navbar from './components/loyout/Navbar'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 function App() {
   return (
     // className = "bg-dark text-white"
-    <div className = 'App' >
-      <Navbar />
-        <Home />
-        <About />
+    <Router>
+      <div className = 'App' >
+        <Navbar />
 
-    </div>
-    
+        <Switch>
+          <Route exact path = '/' component={Home}/>
+          <Route exact path = '/about' component={About} />
+        </Switch>
+
+      </div>
+    </Router>
   );
 }
 
