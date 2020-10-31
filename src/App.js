@@ -1,15 +1,20 @@
 import React from 'react';
-import './App.css';
-// import '../node_modules/bootstrap/dist/css/bootstrap.css'
+// import './App.css';
+import '../node_modules/bootstrap/dist/css/bootstrap.css'
 import Home from './components/Home'
 import About from './components/About'
+import Navbar from './components/loyout/Navbar'
 
 function App() {
   return (
-    <div className="App">
-      <Home />
-      <About />
+    // className = "bg-dark text-white"
+    <div className = 'App' >
+      <Navbar />
+        <Home />
+        <About />
+
     </div>
+    
   );
 }
 
