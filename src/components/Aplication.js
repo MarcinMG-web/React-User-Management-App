@@ -1,6 +1,20 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import { Link } from 'react-router-dom/cjs/react-router-dom.min'
+import { getAllUsers } from '../services/ApiService'
 
 const Aplication = () => {
+
+    const [users, setUsers] = useState([])
+
+    useEffect(() => {
+        const getUsers = async () => {
+            const dataUsers = await getAllUsers();
+            console.log(dataUsers)
+            setUsers(dataUsers)
+        }
+        getUsers()
+    },[])
+
     return (
         <div className = 'container' >
             
@@ -16,39 +30,39 @@ const Aplication = () => {
                     </button>
                 </div>
             </div>
-     
-                <table class="table table-striped table-light">
+
+            <div className = "table-responsive" >
+                <table className = "table table-striped table-dark " >
                     <thead>
                         <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                            <th >#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">User Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Action</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
+                    
+                    <tbody >
+                        {users.map(user =>
+                            <tr key = {user.id}>
+                                <th scope="row" >{user.id}</th>
+                                <td>{user.name}</td>
+                                <td>{user.username}</td>
+                                <td>{user.email}</td>
+                                <td>
+                                    <Link className = "btn btn-success">View</Link>
+                                    <Link className = "btn btn-light">Edit</Link>
+                                    <Link className = "btn btn-danger">Delete</Link>
+                                </td>
+                            </tr>
+                        )}   
                     </tbody>
+                    
                 </table>
-
             </div>
+
+        </div>
     )
 }
 

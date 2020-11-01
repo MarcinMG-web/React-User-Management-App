@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link, NavLink} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 
 const Navbar = () => {
     return (
@@ -29,7 +29,7 @@ const Navbar = () => {
                                 </NavLink>
                             </li>
                         </ul>
-                        {/* <button className='btn btn-group-toggle btn-info'>Add user</button> */}
+                        
                     </div>
             </div>
     </nav>
