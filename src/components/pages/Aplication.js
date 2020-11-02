@@ -22,16 +22,17 @@ const Aplication = () => {
                 <h1>Main Aplication</h1>
 
                 <div className = "d-flex ml-auto p-2" >
-                    <button 
+                    <Link 
                         type="submit" 
                         className = "btn btn-warning  pull-right"
+                        to = './users/AddNewUser'
                     >
                         Add new + 
-                    </button>
+                    </Link>
                 </div>
             </div>
 
-            <div className = "table-responsive" >
+            <div className = "table-responsive text-center " >
                 <table className = "table table-striped table-dark " >
                     <thead>
                         <tr>
@@ -51,9 +52,14 @@ const Aplication = () => {
                                 <td>{user.username}</td>
                                 <td>{user.email}</td>
                                 <td>
-                                    <Link className = "btn btn-success">View</Link>
-                                    <Link className = "btn btn-light">Edit</Link>
-                                    <Link className = "btn btn-danger">Delete</Link>
+                                    <Link className = "btn btn-success mr-2">View</Link>
+                                    <Link 
+                                        className = "btn btn-light mr-2" 
+                                        to = '../users/EditUser'
+                                        >
+                                            Edit
+                                    </Link>
+                                    <Link className = "btn btn-danger mr-2">Delete</Link>
                                 </td>
                             </tr>
                         )}   

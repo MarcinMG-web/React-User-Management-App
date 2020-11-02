@@ -23,11 +23,6 @@ const Navbar = () => {
                                     About
                                 </NavLink>
                             </li>
-                            <li className="nav-item">
-                                <NavLink className = "nav-link" exact to = "/aplication" >
-                                    Aplication
-                                </NavLink>
-                            </li>
                         </ul>
                         
                     </div>

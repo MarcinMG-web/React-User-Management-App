@@ -1,13 +1,16 @@
 import React from 'react';
-import '../node_modules/bootstrap/dist/css/bootstrap.css'
-import Navbar from './components/loyout/Navbar'
+import '../node_modules/bootstrap/dist/css/bootstrap.css';
+import Navbar from './components/layout/Navbar';
 
-import Home from './components/Home'
-import About from './components/About'
-import Aplication from './components/Aplication';
-import NotFound from './components/NotFound'
+import Home from './components/pages/Home';
+import About from './components/pages/About';
+import Aplication from './components/pages/Aplication';
+import NotFound from './components/pages/NotFound';
 
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+
+import AddNewUser from './components/users/AddNewUser';
+import EditUser from './components/users/EditUser';
 
 
 function App() {
@@ -21,6 +24,8 @@ function App() {
           <Route exact path = '/' component={Home}/>
           <Route exact path = '/about' component={About}/>
           <Route exact path = '/aplication' component={Aplication} />
+          <Route exact path = '/users/addNewUser' component={AddNewUser} />
+          <Route exact path = '/users/editUser' component={EditUser} />
           <Route component={NotFound}/>
         </Switch>
 
