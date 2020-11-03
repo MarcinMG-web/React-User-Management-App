@@ -3,9 +3,9 @@ import { Link, useParams } from 'react-router-dom'
 import { getUserById } from '../services/ApiService'
 
 
-const EditUser = () => {
+const ViewUser = () => {
 
-const {userId} = useParams() // param id user
+const {userId} = useParams() 
 
 
 const [userByID, setUserByID] = useState('')
@@ -23,7 +23,7 @@ useEffect(() => {
     return (
         <div className = 'container' >
             <div className = 'py-4 d-flex' >
-                    <h1>Edit User</h1>
+                    <h1>View User</h1>
 
                     <div className = "d-flex ml-auto p-2" >
                         <Link 
@@ -37,12 +37,12 @@ useEffect(() => {
             </div>
             
           
-                {/* <ul className = "list-group" >
-                    <li className="list-group-item text-info">User name: {userByID.name}</li>
-                    <li className="list-group-item text-info">{userByID.username}</li>
-                    <li className="list-group-item text-info">{userByID.email}</li>
-                    <li className="list-group-item text-info">{userByID.phone}</li>
-                </ul> */}
+                <ul className = "list-group" >
+                    <li className="list-group-item text-info">Name: {userByID.name}</li>
+                    <li className="list-group-item text-info">User name: {userByID.username}</li>
+                    <li className="list-group-item text-info">Emial: {userByID.email}</li>
+                    <li className="list-group-item text-info">Phone: {userByID.phone}</li>
+                </ul>
 
                
 
@@ -50,4 +50,4 @@ useEffect(() => {
     )
 }
 
-export default EditUser
+export default ViewUser

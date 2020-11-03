@@ -21,6 +21,14 @@ export const sendNewUser = async (formData) => {
         .catch(err => console.log(err));
 }
 
+export const getUserById = async (userId) => {
+    return await api.get(`/users/${userId}`)
+    
+        .then(({data})=> data)
+                        
+        .catch(err => console.log(err));
+}
+
 
 export const deleteUserById = async (userId) => {
     return await api.delete(`/users/${userId}`)

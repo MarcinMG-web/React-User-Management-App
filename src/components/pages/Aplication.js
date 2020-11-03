@@ -52,10 +52,14 @@ const Aplication = () => {
                                 <td>{user.username}</td>
                                 <td>{user.email}</td>
                                 <td>
-                                    <Link className = "btn btn-success mr-2">View</Link>
+                                    <Link 
+                                        className = "btn btn-success mr-2"
+                                        to = {`/users/ViewUser/${user.id}`}
+                                        >View
+                                    </Link>
                                     <Link 
                                         className = "btn btn-light mr-2" 
-                                        to = '../users/EditUser'
+                                        to = {`/users/EditUser/${user.id}`}
                                         >
                                             Edit
                                     </Link>
