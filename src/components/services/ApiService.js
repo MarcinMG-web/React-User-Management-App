@@ -22,14 +22,22 @@ export const postNewUser = async (newUser) => {
         .catch(err => console.log(err));
 }
 
+
 export const getUserById = async (userId) => {
     return await api.get(`/users/${userId}`)
+    
+    .then(({data})=> data)
+    
+    .catch(err => console.log(err));
+}
+
+export const putNewUserById = async (userId, newUser) => {
+    return await api.put(`/users/${userId}`, newUser)
     
         .then(({data})=> data)
                         
         .catch(err => console.log(err));
 }
-
 
 export const deleteUserById = async (userId) => {
     return await api.delete(`/users/${userId}`)

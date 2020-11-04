@@ -11,7 +11,6 @@ const [userByID, setUserByID] = useState('')
 useEffect(() => {
     const getUserID = async () => {
         const getUser = await getUserById(userId);
-        // console.log(getUser)
         setUserByID(getUser)
     }
 
@@ -33,7 +32,7 @@ useEffect(() => {
                         </Link>
                     </div>
             </div> 
-
+            
             <ul className = "list-group" >
                 <li className="list-group-item text-info">Name: {userByID.name}</li>
                 <li className="list-group-item text-info">User name: {userByID.username}</li>

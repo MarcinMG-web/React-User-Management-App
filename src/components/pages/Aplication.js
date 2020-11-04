@@ -14,14 +14,12 @@ const Aplication = () => {
 
     const getUsers = async () => {
          const dataUsers = await getAllUsers();
-         console.log(dataUsers)
          setUsers(dataUsers)
      }
 
 
     const deleteUser = async (userId) => {
-        const result = await deleteUserById(userId);
-        console.log(result)
+        await deleteUserById(userId);
         getUsers()
     }
 

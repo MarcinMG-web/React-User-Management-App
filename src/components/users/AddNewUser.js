@@ -25,7 +25,6 @@ const handleChange = (e) => {
 
 const handleSubmitForm = (e) => {
     e.preventDefault();
-    console.log(newUser)
 
     const setNewUserForFrom = async () => {
         await postNewUser(newUser) // 

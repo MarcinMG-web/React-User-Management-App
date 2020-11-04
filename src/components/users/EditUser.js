@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useHistory, useParams } from 'react-router-dom'
-import {  postNewUser, getUserById, postUserById } from '../services/ApiService'
+import { getUserById, putNewUserById } from '../services/ApiService'
 
 const EditUser = () => {
 
 let history = useHistory();
 
 const {userId} = useParams();
-
 
 const initUser = {
     id: '',
@@ -18,6 +17,7 @@ const initUser = {
 }
 
 const [newUser, setNewUser] = useState(initUser)
+const {name, username, email, phone} = newUser;
 
 const handleChange = (e) => {
     setNewUser({
@@ -30,20 +30,17 @@ useEffect(() => {
     loadUser()
 },[])
 
-const handleSubmitForm = async(e) => {
+const handleSubmitForm = async (e) => {
     e.preventDefault();
-    console.log(newUser)
 
-    await postNewUser(newUser)  
+    await putNewUserById(userId, newUser) 
     history.push('/aplication')
    
 }
 
 const loadUser = async () => {
     const result = await getUserById(userId)
-    console.log('result', result)
     setNewUser(result)
-
 }
 
     return (
@@ -66,14 +63,15 @@ const loadUser = async () => {
             Enter all of input element to edit user:
             </small>
 
-        <form onSubmit = {handleSubmitForm} >
+        <form onSubmit = {e => handleSubmitForm(e)} >
             <div className="input-group mb-3">
                 <input 
                     type="text" 
                     className="form-control" 
                     placeholder="Enter your name..."
-                    name={'name'}
-                    onChange={handleChange}
+                    name='name'
+                    value={name}
+                    onChange={e => handleChange(e)}
                 />
             </div>
             <div className="input-group mb-3">
@@ -81,8 +79,9 @@ const loadUser = async () => {
                     type="text" 
                     className="form-control" 
                     placeholder="Enter your user name..."
-                    name={'username'}
-                    onChange={handleChange}
+                    name='username'
+                    value={username}
+                    onChange={e => handleChange(e)}
                 />
             </div>
             <div className="input-group mb-3">
@@ -90,8 +89,9 @@ const loadUser = async () => {
                     type="email" 
                     className="form-control" 
                     placeholder="Enter your email..."
-                    name={'email'}
-                    onChange={handleChange}
+                    name='email'
+                    value={email}
+                    onChange={e => handleChange(e)}
                 />
             </div>
             <div className="input-group mb-3">
@@ -99,8 +99,9 @@ const loadUser = async () => {
                     type="text" 
                     className="form-control" 
                     placeholder="Enter your phone..."
-                    name={'phone'}
-                    onChange={handleChange}
+                    name='phone'
+                    value={phone}
+                    onChange={e => handleChange(e)}
                 />
             </div>
 
