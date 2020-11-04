@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useHistory } from 'react-router-dom'
-import { sendNewUser } from '../services/ApiService'
+import { postNewUser } from '../services/ApiService'
 
 const AddNewUser = () => {
 
@@ -28,7 +28,7 @@ const handleSubmitForm = (e) => {
     console.log(newUser)
 
     const setNewUserForFrom = async () => {
-        await sendNewUser(newUser)
+        await postNewUser(newUser) // 
         history.push('/aplication')
     }
 

@@ -7,14 +7,15 @@ const api = axios.create({
 export const getAllUsers = async () => {
     try {
         return await api.get(`/users`)
-            .then(({data}) => data);
+        .then(({data}) => data);
+
     } catch (err) {
         console.log(err)
     }
 }
 
-export const sendNewUser = async (formData) => {
-    return await api.post(`/users`, formData)
+export const postNewUser = async (newUser) => {
+    return await api.post(`/users`, newUser)
     
         .then(({data})=> data)
                         

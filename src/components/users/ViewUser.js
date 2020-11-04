@@ -6,14 +6,12 @@ import { getUserById } from '../services/ApiService'
 const ViewUser = () => {
 
 const {userId} = useParams() 
-
-
 const [userByID, setUserByID] = useState('')
 
 useEffect(() => {
     const getUserID = async () => {
         const getUser = await getUserById(userId);
-        console.log(getUser)
+        // console.log(getUser)
         setUserByID(getUser)
     }
 
@@ -34,18 +32,14 @@ useEffect(() => {
                             Back to aplication 
                         </Link>
                     </div>
-            </div>
-            
-          
-                <ul className = "list-group" >
-                    <li className="list-group-item text-info">Name: {userByID.name}</li>
-                    <li className="list-group-item text-info">User name: {userByID.username}</li>
-                    <li className="list-group-item text-info">Emial: {userByID.email}</li>
-                    <li className="list-group-item text-info">Phone: {userByID.phone}</li>
-                </ul>
+            </div> 
 
-               
-
+            <ul className = "list-group" >
+                <li className="list-group-item text-info">Name: {userByID.name}</li>
+                <li className="list-group-item text-info">User name: {userByID.username}</li>
+                <li className="list-group-item text-info">Emial: {userByID.email}</li>
+                <li className="list-group-item text-info">Phone: {userByID.phone}</li>
+            </ul>
         </div>
     )
 }

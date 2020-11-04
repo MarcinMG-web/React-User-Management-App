@@ -1,19 +1,29 @@
 import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min'
-import { getAllUsers } from '../services/ApiService'
+import { getAllUsers, deleteUserById } from '../services/ApiService'
 
 const Aplication = () => {
 
     const [users, setUsers] = useState([])
 
     useEffect(() => {
-        const getUsers = async () => {
-            const dataUsers = await getAllUsers();
-            console.log(dataUsers)
-            setUsers(dataUsers)
-        }
+        
         getUsers()
+        
     },[])
+
+    const getUsers = async () => {
+         const dataUsers = await getAllUsers();
+         console.log(dataUsers)
+         setUsers(dataUsers)
+     }
+
+
+    const deleteUser = async (userId) => {
+        const result = await deleteUserById(userId);
+        console.log(result)
+        getUsers()
+    }
 
     return (
         <div className = 'container' >
@@ -63,7 +73,12 @@ const Aplication = () => {
                                         >
                                             Edit
                                     </Link>
-                                    <Link className = "btn btn-danger mr-2">Delete</Link>
+                                    <Link 
+                                        className = "btn btn-danger mr-2"
+                                        onClick = {() => deleteUser(user.id)}
+                                        >
+                                            Delete
+                                    </Link>
                                 </td>
                             </tr>
                         )}   
