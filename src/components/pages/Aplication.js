@@ -56,24 +56,36 @@ const Aplication = () => {
     return (
         <div className = 'container' >
                         
-            <div className = 'py-4 d-flex' >   
-                <h1>Main Aplication</h1>
+            <div className = 'py-4 d-flex justify-content-between' >
 
+                <div className = "d-flex  p-2" >
+                    <Link
+                        type="submit" 
+                        className = "btn btn-outline-secondary "
+                        to = '/'
+                    >
+                        Log out 
+                    </Link>              
+                </div>
+                
+                <h3 className = "d-flex ml-auto p-2">Main Aplication</h3>
+                
                 <div className = "d-flex ml-auto p-2" >
                     <Link 
                         type="submit" 
-                        className = "btn btn-warning  pull-right"
+                        className = "btn btn-warning  "
                         to = './users/AddNewUser'
                     >
                         Add new + 
                     </Link>
                 </div>
+
             </div>
 
             <div id="spinner" className="loading"></div>
 
             <div className = "table-responsive text-center " >
-                <table className = "table table-striped table-dark " >
+                <table table className = "table table-striped table-dark text-center align-items-center" >
                     <thead>
                         <tr>
                             <th >#</th>
@@ -128,16 +140,7 @@ const Aplication = () => {
                     
                 </table>
             </div>
-            
-            <div className = "col text-center " >
-              <Link
-                    type="submit" 
-                    className = "btn btn-outline-secondary btn-block"
-                    to = '/'
-                >
-                        Log out 
-                </Link>              
-            </div>
+                        
         </div>
     )
 }

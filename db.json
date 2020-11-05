@@ -69,6 +69,20 @@
       "username": "user",
       "email": "nowy.diala@user",
       "phone": "1232313213131321313213"
+    },
+    {
+      "id": 21,
+      "name": "new",
+      "username": "user",
+      "email": "new@user",
+      "phone": "123-123"
+    },
+    {
+      "id": 22,
+      "name": "add new",
+      "username": "user",
+      "email": "adas@das",
+      "phone": "asd@dasda"
     }
   ]
 }
