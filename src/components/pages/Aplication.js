@@ -23,6 +23,36 @@ const Aplication = () => {
         getUsers()
     }
 
+    const isSortClick = (properties) => {
+        function compare(a, b) {
+            spinner()
+            if (a[properties] < b[properties]) {
+                return -1;
+            }
+            if (a[properties] > b[properties]) {
+                return 1;
+            }
+            return 0;
+        }
+        stopSpinner()
+        const user = users.sort(compare).slice();
+       
+       setUsers(user)
+       
+    }
+
+    // Spiner
+    const spinner = () => {
+      document.getElementById('spinner').style.display = "flex";
+    }
+    const stopSpinner = ()  => {
+        const spinnerDelay = () => {
+            document.getElementById('spinner').style.display = "none";
+        }
+        setTimeout(spinnerDelay, 500);
+    }
+
+
     return (
         <div className = 'container' >
             
@@ -40,22 +70,36 @@ const Aplication = () => {
                 </div>
             </div>
 
+            <div id="spinner" className="loading"></div>
+
             <div className = "table-responsive text-center " >
                 <table className = "table table-striped table-dark " >
                     <thead>
                         <tr>
                             <th >#</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">User Name</th>
-                            <th scope="col">Email</th>
+                            <th scope="col" 
+                                className = 'headingTable' 
+                                onClick={() => isSortClick('name')}
+                                >Name
+                            </th>
+                            <th scope="col"
+                                className = 'headingTable'
+                                onClick={() => isSortClick('username')}
+                                >User Name
+                            </th>
+                            <th scope="col" 
+                                className = 'headingTable'
+                                onClick={() => isSortClick('email')} 
+                                >Email
+                            </th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
                     
                     <tbody >
-                        {users.map(user =>
+                        {users.map((user, index) =>
                             <tr key = {user.id}>
-                                <th scope="row" >{user.id}</th>
+                                <th scope="row" >{index + 1}</th>
                                 <td>{user.name}</td>
                                 <td>{user.username}</td>
                                 <td>{user.email}</td>
