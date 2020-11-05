@@ -55,8 +55,8 @@ const Aplication = () => {
 
     return (
         <div className = 'container' >
-            
-            <div className = 'py-4 d-flex' >
+                        
+            <div className = 'py-4 d-flex' >   
                 <h1>Main Aplication</h1>
 
                 <div className = "d-flex ml-auto p-2" >
@@ -128,7 +128,16 @@ const Aplication = () => {
                     
                 </table>
             </div>
-
+            
+            <div className = "col text-center " >
+              <Link
+                    type="submit" 
+                    className = "btn btn-outline-secondary btn-block"
+                    to = '/'
+                >
+                        Log out 
+                </Link>              
+            </div>
         </div>
     )
 }

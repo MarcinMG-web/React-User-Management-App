@@ -1,7 +1,8 @@
-import React from 'react'
+import React  from 'react'
 import {Link} from 'react-router-dom'
 
 const Home = () => {
+
     return (
         <div className = 'container'>
             <div className = 'py-4' >
@@ -9,13 +10,13 @@ const Home = () => {
                 <span className="text-danger" >Welcome to my aplication! </span>
             </div>
 
-            <form className = 'mt-5' >
+            <form className = 'mt-5'>
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">User name:</label>
                     <input 
                         type="text" 
                         className="form-control" 
-                        id="exampleInputEmail1" 
+                        name = "fname"
                         aria-describedby="emailHelp" 
                         placeholder="Enter your name" 
                     />
@@ -40,6 +41,7 @@ const Home = () => {
                     <Link 
                         className="btn btn-warning px-10 py-2"
                         to = './Aplication'
+                        value = "Submit"
                     >
                         Let's get started 
                     </Link>
