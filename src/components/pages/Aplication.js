@@ -85,7 +85,7 @@ const Aplication = () => {
             <div id="spinner" className="loading"></div>
 
             <div className = "table-responsive text-center " >
-                <table table className = "table table-striped table-dark text-center align-items-center" >
+                <table className = "table table-striped table-dark text-center align-items-center" >
                     <thead>
                         <tr>
                             <th >#</th>

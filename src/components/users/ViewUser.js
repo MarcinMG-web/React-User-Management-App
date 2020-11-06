@@ -33,7 +33,7 @@ useEffect(() => {
                     </div>
             </div> 
             
-            <ul className = "list-group" >
+            <ul className = "list-group text-left" >
                 <li className="list-group-item text-info">Name: {userByID.name}</li>
                 <li className="list-group-item text-info">User name: {userByID.username}</li>
                 <li className="list-group-item text-info">Emial: {userByID.email}</li>

@@ -1,7 +1,30 @@
-import React  from 'react'
+import React, {useState}  from 'react'
 import {Link} from 'react-router-dom'
 
 const Home = () => {
+
+
+const [isAcces, setIsAcces] = useState({
+    name:'',
+    password: ''
+})
+
+const handleChange = (e) => {
+    setIsAcces({
+        [e.target.name]: e.target.value,
+    })
+    console.log(isAcces)
+}
+
+const login = (e) => {
+    e.preventDefault();
+    console.log('isAcces',isAcces)
+    console.log('login')
+    
+   
+
+   
+}
 
     return (
         <div className = 'container'>
@@ -10,15 +33,16 @@ const Home = () => {
                 <span className="text-danger" >Welcome to my aplication! </span>
             </div>
 
-            <form className = 'mt-5'>
+            <form className = 'mt-5' onSubmit = { login } >
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">User name:</label>
                     <input 
                         type="text" 
                         className="form-control" 
-                        name = "fname"
+                        name = 'name'
                         aria-describedby="emailHelp" 
-                        placeholder="Enter your name" 
+                        placeholder="Enter your name"
+                        onChange = {handleChange}
                     />
                 </div>
 
@@ -27,8 +51,9 @@ const Home = () => {
                     <input 
                         type="password" 
                         className="form-control" 
-                        id="exampleInputPassword1" 
+                        name = 'password'
                         placeholder="Enter your password"
+                        onChange = {handleChange}
                     />
                         <small id="emailHelp" className="form-text text-muted">Never share your password with anyone else.</small>
                 </div>
@@ -38,13 +63,14 @@ const Home = () => {
                 </div>
                 
                 <div className="col text-center ">
-                    <Link 
+                    <button  // Link
                         className="btn btn-warning px-10 py-2"
-                        to = './Aplication'
+                        // to = './Aplication'
                         value = "Submit"
+                       
                     >
                         Let's get started 
-                    </Link>
+                    </button>
                 </div>
                
             </form>
