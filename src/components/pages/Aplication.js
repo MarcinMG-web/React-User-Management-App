@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react'
-import { Link } from 'react-router-dom/cjs/react-router-dom.min'
+import { Link, Redirect } from 'react-router-dom/cjs/react-router-dom.min'
 import { getAllUsers, deleteUserById } from '../services/ApiService'
 
 const Aplication = () => {
 
     const [users, setUsers] = useState([])
+    const [islogout, setIslogout] = useState(false)
 
     useEffect(() => {
         
@@ -17,12 +18,17 @@ const Aplication = () => {
          setUsers(dataUsers)
      }
 
-
     const deleteUser = async (userId) => {
         await deleteUserById(userId);
         getUsers()
     }
 
+    const isSignOut = () => {
+        localStorage.removeItem('token');
+        setIslogout(true)
+    };
+
+    // Sort
     const isSortClick = (properties) => {
         function compare(a, b) {
             spinner()
@@ -51,7 +57,10 @@ const Aplication = () => {
         }
         setTimeout(spinnerDelay, 500);
     }
-
+   
+    if (islogout) {
+        return <Redirect to = "/" / > ;
+    }
 
     return (
         <div className = 'container' >
@@ -59,13 +68,13 @@ const Aplication = () => {
             <div className = 'py-4 d-flex justify-content-between' >
 
                 <div className = "d-flex  p-2" >
-                    <Link
+                    <button
                         type="submit" 
                         className = "btn btn-outline-secondary "
-                        to = '/'
+                        onClick={isSignOut}
                     >
                         Log out 
-                    </Link>              
+                    </button>              
                 </div>
                 
                 <h3 className = "d-flex ml-auto p-2">Main Aplication</h3>

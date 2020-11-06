@@ -3,7 +3,7 @@
     {
       "id": 11,
       "name": "New",
-      "username": "user",
+      "username": "user123",
       "email": "new@new",
       "phone": "123213"
     },
@@ -26,13 +26,6 @@
       "name": "ala",
       "username": "Zbajki",
       "email": "dziala@das",
-      "phone": ""
-    },
-    {
-      "id": 15,
-      "name": "jack",
-      "username": "sprawrow",
-      "email": "buziaczek@121",
       "phone": ""
     },
     {

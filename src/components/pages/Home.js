@@ -1,30 +1,40 @@
 import React, {useState}  from 'react'
-import {Link} from 'react-router-dom'
+import {Redirect} from 'react-router-dom'
 
 const Home = () => {
 
-
-const [isAcces, setIsAcces] = useState({
-    name:'',
-    password: ''
-})
-
-const handleChange = (e) => {
-    setIsAcces({
-        [e.target.name]: e.target.value,
+    const [islogged, setIslogged] = useState(false)
+    const [loginParams, setLoginParams] = useState({
+        name:'',
+        password: ''
     })
-    console.log(isAcces)
-}
 
-const login = (e) => {
-    e.preventDefault();
-    console.log('isAcces',isAcces)
-    console.log('login')
-    
-   
+    const handleChange = (e) => {
+        
+        setLoginParams({
+            ...loginParams,
+            [e.target.name]: e.target.value,
+        })
+    }
 
-   
-}
+    const isLogin = (e) => {
+
+        let name = loginParams.name;
+        let password = loginParams.password;
+
+        if (name === 'admin' && password === '123') {
+            localStorage.setItem('token', 'T');
+            setIslogged(true);
+        } else {
+            alert('Try again to get acces !')
+        }
+        
+        e.preventDefault();
+    }
+
+    if (localStorage.getItem('token')) {
+            return <Redirect from="/" to="/Aplication" /> ;
+    }
 
     return (
         <div className = 'container'>
@@ -33,7 +43,7 @@ const login = (e) => {
                 <span className="text-danger" >Welcome to my aplication! </span>
             </div>
 
-            <form className = 'mt-5' onSubmit = { login } >
+            <form className = 'mt-5' onSubmit = { isLogin } >
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">User name:</label>
                     <input 
@@ -55,19 +65,16 @@ const login = (e) => {
                         placeholder="Enter your password"
                         onChange = {handleChange}
                     />
-                        <small id="emailHelp" className="form-text text-muted">Never share your password with anyone else.</small>
+                        <small id="emailHelp" className="form-text text-muted">
+                            Never share your password with anyone else.
+                        </small>
                 </div>
-                <div className="form-check">
-                    <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-                    <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
-                </div>
-                
+                             
                 <div className="col text-center ">
-                    <button  // Link
+                    <button 
                         className="btn btn-warning px-10 py-2"
-                        // to = './Aplication'
-                        value = "Submit"
-                       
+                        type = 'submit'
+                        value = 'Login'
                     >
                         Let's get started 
                     </button>
