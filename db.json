@@ -1,30 +1,23 @@
 {
   "users": [
     {
-      "id": 11,
-      "name": "New",
-      "username": "user123",
-      "email": "new@new",
-      "phone": "123213"
-    },
-    {
       "id": 12,
       "name": "Jon",
-      "username": "Dd",
+      "username": "do",
       "email": "dasdas@dasddasd.com",
       "phone": ""
     },
     {
       "id": 13,
       "name": "Ali",
-      "username": "baba",
+      "username": "Baba",
       "email": "cos@dasd",
       "phone": ""
     },
     {
       "id": 14,
       "name": "ala",
-      "username": "Zbajki",
+      "username": "Kraina czarów",
       "email": "dziala@das",
       "phone": ""
     },
@@ -36,16 +29,9 @@
       "phone": ""
     },
     {
-      "id": 18,
-      "name": "sortowanie",
-      "username": "sortowanie ",
-      "email": "nowy@user",
-      "phone": ""
-    },
-    {
       "id": 19,
       "name": "zebza",
-      "username": "-",
+      "username": "no name",
       "email": "dziala@da",
       "phone": ""
     },
@@ -68,7 +54,7 @@
       "name": "add new",
       "username": "user",
       "email": "adas@das",
-      "phone": "asd@dasda"
+      "phone": "10.10.2020"
     }
   ]
 }

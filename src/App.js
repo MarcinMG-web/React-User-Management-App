@@ -13,6 +13,7 @@ import AddNewUser from './components/users/AddNewUser';
 import ViewUser from './components/users/ViewUser';
 import EditUser from './components/users/EditUser';
 
+import ProtectedRoute from './components/pages/ProtectedRoute';
 
 function App() {
   return (
@@ -24,7 +25,11 @@ function App() {
         <Switch>
           <Route exact path = '/' component={Home}/>
           <Route exact path = '/about' component={About}/>
-          <Route exact path = '/aplication' component={Aplication} />
+
+          <ProtectedRoute  path = '/aplication' >
+            <Route exact path = '/aplication' component={Aplication} />
+          </ProtectedRoute>
+          
           <Route exact path = '/users/addNewUser' component={AddNewUser} />
           <Route exact path = '/users/viewUser/:userId' component={ViewUser} />
           <Route exact path = '/users/editUser/:userId' component={EditUser} />

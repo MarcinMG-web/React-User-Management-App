@@ -4,44 +4,44 @@ import { getUserById, putNewUserById } from '../services/ApiService'
 
 const EditUser = () => {
 
-let history = useHistory();
+    let history = useHistory();
 
-const {userId} = useParams();
+    const {userId} = useParams();
 
-const initUser = {
-    id: '',
-    name: '',
-    username: '',
-    email: '',
-    phone: ''
-}
+    const initUser = {
+        id: '',
+        name: '',
+        username: '',
+        email: '',
+        phone: ''
+    }
 
-const [newUser, setNewUser] = useState(initUser)
-const {name, username, email, phone} = newUser;
+    const [newUser, setNewUser] = useState(initUser)
+    const {name, username, email, phone} = newUser;
 
-const handleChange = (e) => {
-    setNewUser({
-        ...newUser,
-        [e.target.name]: e.target.value
-    })
-}
+    const handleChange = (e) => {
+        setNewUser({
+            ...newUser,
+            [e.target.name]: e.target.value
+        })
+    }
 
-useEffect(() => {
-    loadUser()
-},[])
+    useEffect(() => {
+        loadUser()
+    },[])
 
-const handleSubmitForm = async (e) => {
-    e.preventDefault();
+    const handleSubmitForm = async (e) => {
+        e.preventDefault();
 
-    await putNewUserById(userId, newUser) 
-    history.push('/aplication')
-   
-}
+        await putNewUserById(userId, newUser) 
+        history.push('/aplication')
+    
+    }
 
-const loadUser = async () => {
-    const result = await getUserById(userId)
-    setNewUser(result)
-}
+    const loadUser = async () => {
+        const result = await getUserById(userId)
+        setNewUser(result)
+    }
 
     return (
         <div className = 'container'>
@@ -60,7 +60,7 @@ const loadUser = async () => {
                 </div>
 
             <small id="emailHelp" className="form-text text-muted py-4">
-            Enter all of input element to edit user:
+                Enter all of input element to edit user:
             </small>
 
         <form onSubmit = {e => handleSubmitForm(e)} >

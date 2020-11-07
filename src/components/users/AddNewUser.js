@@ -27,7 +27,7 @@ const handleSubmitForm = (e) => {
     e.preventDefault();
 
     const setNewUserForFrom = async () => {
-        await postNewUser(newUser) // 
+        await postNewUser(newUser)  
         history.push('/aplication')
     }
 
@@ -51,7 +51,7 @@ const handleSubmitForm = (e) => {
                 </div>
 
             <small id="emailHelp" className="form-text text-muted py-4">
-            Enter all of input element to add new user:
+                Enter all of input element to add new user:
             </small>
 
         <form onSubmit = {handleSubmitForm} >
@@ -101,8 +101,7 @@ const handleSubmitForm = (e) => {
                 </div>
         </form>
     </div>
-
-        
+       
 )}
 
 export default AddNewUser

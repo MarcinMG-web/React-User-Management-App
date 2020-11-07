@@ -32,7 +32,7 @@ const Home = () => {
         e.preventDefault();
     }
 
-    if (localStorage.getItem('token')) {
+    if (islogged) {
             return <Redirect from="/" to="/Aplication" /> ;
     }
 
