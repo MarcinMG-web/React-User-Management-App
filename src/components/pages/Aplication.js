@@ -105,13 +105,18 @@ const Aplication = () => {
                             </th>
                             <th scope="col"
                                 className = 'headingTable'
-                                onClick={() => isSortClick('username')}
-                                >User Name
+                                onClick={() => isSortClick('company')}
+                                >Company
                             </th>
                             <th scope="col" 
                                 className = 'headingTable'
                                 onClick={() => isSortClick('email')} 
                                 >Email
+                            </th>
+                            <th scope="col" 
+                                className = 'headingTable'
+                                onClick={() => isSortClick('phone')} 
+                                >Phone
                             </th>
                             <th scope="col">Action</th>
                         </tr>
@@ -121,9 +126,10 @@ const Aplication = () => {
                         {users.map((user, index) =>
                             <tr key = {user.id}>
                                 <th scope="row" >{index + 1}</th>
-                                <td>{user.name}</td>
-                                <td>{user.username}</td>
-                                <td>{user.email}</td>
+                                <td className = 'columnTable'>{user.name}</td>
+                                <td className = 'columnTable'>{user.company}</td>
+                                <td className = 'columnTable'>{user.email}</td>
+                                <td className = 'columnTable'>{user.phone}</td>
                                 <td>
                                     <Link 
                                         className = "btn btn-success mr-2"

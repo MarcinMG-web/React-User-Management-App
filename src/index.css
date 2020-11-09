@@ -19,6 +19,10 @@
   cursor: pointer;
 }
 
+.columnTable:hover {
+  color:greenyellow;
+}
+
 /* spiner */
 #spinner {
   display: none;

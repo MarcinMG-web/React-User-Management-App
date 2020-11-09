@@ -39,6 +39,19 @@ useEffect(() => {
                 <li className="list-group-item text-info">Emial: {userByID.email}</li>
                 <li className="list-group-item text-info">Phone: {userByID.phone}</li>
             </ul>
+            <br />
+            <ul className = "list-group text-left" >
+                <li className="list-group-item text-info">Street: {userByID.street}</li>
+                <li className="list-group-item text-info">Suite: {userByID.suite}</li>
+                <li className="list-group-item text-info">City: {userByID.city}</li>
+                <li className="list-group-item text-info">Zipcode: {userByID.zipcode}</li>
+            </ul>
+            <br />
+            <ul className = "list-group text-left" >
+                <li className="list-group-item text-info">Company: {userByID.company}</li>
+                <li className="list-group-item text-info">Website: {userByID.website}</li>
+                <li className="list-group-item text-info">Comment: {userByID.bs}</li>
+            </ul>
         </div>
     )
 }

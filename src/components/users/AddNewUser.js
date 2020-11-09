@@ -7,11 +7,19 @@ const AddNewUser = () => {
 let history = useHistory()
 
 const initUser = {
-    id:'',
-    name:'',
-    username:'',
-    email:'',
-    phone:''
+    id: '',
+    name: '',
+    username: '',
+    email: '',
+    street: '',
+    suite: '',
+    city: '',
+    zipcode: '',
+    phone: '',
+    website: '',
+    company: '',
+    catchPhrase: '',
+    bs: ''
 }
 
 const [newUser, setNewUser] = useState(initUser)
@@ -49,17 +57,20 @@ const handleSubmitForm = (e) => {
                         </Link>
                     </div>
                 </div>
-
-            <small id="emailHelp" className="form-text text-muted py-4">
+            
+            <small className="form-text text-muted py-2">
                 Enter all of input element to add new user:
             </small>
 
         <form onSubmit = {handleSubmitForm} >
+            
+            <span>Main inforamtion:</span>
+
             <div className="input-group mb-3">
                 <input 
                     type="text" 
                     className="form-control" 
-                    placeholder="Enter your name..."
+                    placeholder="Enter name..."
                     name={'name'}
                     onChange={handleChange}
                 />
@@ -68,7 +79,7 @@ const handleSubmitForm = (e) => {
                 <input 
                     type="text" 
                     className="form-control" 
-                    placeholder="Enter your user name..."
+                    placeholder="Enter user name..."
                     name={'username'}
                     onChange={handleChange}
                 />
@@ -77,7 +88,7 @@ const handleSubmitForm = (e) => {
                 <input 
                     type="email" 
                     className="form-control" 
-                    placeholder="Enter your email..."
+                    placeholder="Enter email..."
                     name={'email'}
                     onChange={handleChange}
                 />
@@ -86,12 +97,80 @@ const handleSubmitForm = (e) => {
                 <input 
                     type="text" 
                     className="form-control" 
-                    placeholder="Enter your phone..."
+                    placeholder="Enter phone..."
                     name={'phone'}
                     onChange={handleChange}
                 />
             </div>
 
+            <span>Address:</span>
+
+            <div className="input-group mb-3">
+                <input 
+                    type="text" 
+                    className="form-control" 
+                    placeholder="Enter street..."
+                    name={'street'}
+                    onChange={handleChange}
+                />
+            </div>
+            <div className="input-group mb-3">
+                <input 
+                    type="text" 
+                    className="form-control" 
+                    placeholder="Enter suite..."
+                    name={'suite'}
+                    onChange={handleChange}
+                />
+            </div>
+            <div className="input-group mb-3">
+                <input 
+                    type="text" 
+                    className="form-control" 
+                    placeholder="Enter city..."
+                    name={'city'}
+                    onChange={handleChange}
+                />
+            </div>
+            <div className="input-group mb-3">
+                <input 
+                    type="text" 
+                    className="form-control" 
+                    placeholder="Enter zipcode..."
+                    name={'zipcode'}
+                    onChange={handleChange}
+                />
+            </div>
+
+            <span>Company:</span>
+
+            <div className="input-group mb-3">
+                <input 
+                    type="text" 
+                    className="form-control" 
+                    placeholder="Enter company..."
+                    name={'company'}
+                    onChange={handleChange}
+                />
+            </div>
+            <div className="input-group mb-3">
+                <input 
+                    type="text" 
+                    className="form-control" 
+                    placeholder="Enter website..."
+                    name={'website'}
+                    onChange={handleChange}
+                />
+            </div>
+            <div className="input-group mb-3">
+                <input 
+                    type="text" 
+                    className="form-control" 
+                    placeholder="Enter comments..."
+                    name={'bs'}
+                    onChange={handleChange}
+                />
+            </div>
                 <div className = "panel-body" >
                     <button 
                         className="btn btn-outline-secondary btn-block" 
