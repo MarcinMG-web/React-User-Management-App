@@ -14,9 +14,9 @@ const Aplication = () => {
     },[])
 
     const getUsers = async () => {
-         const dataUsers = await getAllUsers();
-         setUsers(dataUsers)
-     }
+        const dataUsers = await getAllUsers();
+        setUsers(dataUsers)
+    }
 
     const deleteUser = async (userId) => {
         await deleteUserById(userId);
@@ -82,7 +82,7 @@ const Aplication = () => {
                 <div className = "d-flex ml-auto p-2" >
                     <Link 
                         type="submit" 
-                        className = "btn btn-warning  "
+                        className = "btn btn-outline-warning   "
                         to = './users/AddNewUser'
                     >
                         Add new + 
@@ -122,7 +122,7 @@ const Aplication = () => {
                         </tr>
                     </thead>
                     
-                    <tbody >
+                     <tbody >
                         {users.map((user, index) =>
                             <tr key = {user.id}>
                                 <th scope="row" >{index + 1}</th>
@@ -132,18 +132,18 @@ const Aplication = () => {
                                 <td className = 'columnTable'>{user.phone}</td>
                                 <td>
                                     <Link 
-                                        className = "btn btn-success mr-2"
+                                        className = "btn btn-outline-success mr-2"
                                         to = {`/users/ViewUser/${user.id}`}
                                         >View
                                     </Link>
                                     <Link 
-                                        className = "btn btn-light mr-2" 
+                                        className = "btn btn-outline-light mr-2"
                                         to = {`/users/EditUser/${user.id}`}
                                         >
                                             Edit
                                     </Link>
                                     <Link 
-                                        className = "btn btn-danger mr-2"
+                                        className = "btn btn-outline-danger mr-2"
                                         onClick = {() => deleteUser(user.id)}
                                         >
                                             Delete

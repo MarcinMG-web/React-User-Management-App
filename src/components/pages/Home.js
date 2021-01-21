@@ -72,7 +72,7 @@ const Home = () => {
                              
                 <div className="col text-center ">
                     <button 
-                        className="btn btn-warning px-10 py-2"
+                        className="btn btn-outline-warning  px-10 py-2"
                         type = 'submit'
                         value = 'Login'
                     >

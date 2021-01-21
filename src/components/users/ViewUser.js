@@ -25,7 +25,7 @@ useEffect(() => {
                     <div className = "d-flex ml-auto p-2" >
                         <Link 
                             type="submit" 
-                            className = "btn btn-warning  pull-right"
+                            className = "btn btn-outline-warning pull-right"
                             to = '/Aplication'
                         >
                             Back to aplication 
