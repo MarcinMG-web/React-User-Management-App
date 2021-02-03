@@ -14,6 +14,7 @@ import ViewUser from './components/users/ViewUser';
 import EditUser from './components/users/EditUser';
 
 import ProtectedRoute from './components/pages/ProtectedRoute';
+import { Calendary } from './components/pages/Calendary';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route exact path = '/users/addNewUser' component={AddNewUser} />
           <Route exact path = '/users/viewUser/:userId' component={ViewUser} />
           <Route exact path = '/users/editUser/:userId' component={EditUser} />
+          <Route exact path = '/calendary' component={Calendary} />
           <Route component={NotFound}/>
         </Switch>
 

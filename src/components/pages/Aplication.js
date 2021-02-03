@@ -79,7 +79,15 @@ const Aplication = () => {
                 
                 <h3 className = "d-flex ml-auto p-2">Main Aplication</h3>
                 
+
                 <div className = "d-flex ml-auto p-2" >
+                    <Link 
+                        type="submit" 
+                        className = "btn btn-outline-primary mr-2"
+                        to = './calendary'
+                    >
+                       Calendary
+                    </Link>
                     <Link 
                         type="submit" 
                         className = "btn btn-outline-warning   "
