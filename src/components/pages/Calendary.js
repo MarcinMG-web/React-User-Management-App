@@ -1,11 +1,52 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect }  from 'react'
+import { Link, useHistory } from 'react-router-dom'
+
+import { getAllEvents } from '../services/ApiService'
+import { postNewEvent } from '../services/ApiService' 
 
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
+import interactionPlugin from "@fullcalendar/interaction"
 
 export const Calendary = () => {
+    
+    let history = useHistory()
+    
+    const [events, setEvents] = useState([])
 
+    useEffect(() => {
+
+        getEvents()
+
+    }, [])
+
+    const getEvents = async () => {
+        const dataEvents = await getAllEvents();
+        setEvents(dataEvents)
+    }
+            
+    const handleDateClick = (arg) => {
+        alert(arg.dateStr)
+    }
+
+    const clickDate = (info) => {
+        console.log('click date: ')
+        
+        const title = prompt('Event Title:');
+
+        if (title){
+            postNewEvent({
+                "title": title,
+                "date": info.dateStr
+            })
+        }
+
+        history.push('/calendary')
+        getEvents()
+    }
+
+    
+    
     return (
        <div className = 'container'>
                 <div className = 'py-4 d-flex' >
@@ -22,15 +63,29 @@ export const Calendary = () => {
                     </div>
                 </div>
             
+            <small id="emailHelp" className="form-text text-muted">
+                           Set day to add event
+            </small>
             {/* Calendary */}
 
             <FullCalendar
-                plugins = {[dayGridPlugin ]}
+               plugins = {
+                   [dayGridPlugin, interactionPlugin]
+               }
                 initialView="dayGridMonth"
+                events = {
+                    events
+                }
+                eventClick = {
+                    handleDateClick
+                }
+                dateClick = {
+                    clickDate
+                }
                 
             />
-
-
+            
         </div>
+        
     )
 }
