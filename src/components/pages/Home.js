@@ -43,7 +43,11 @@ const Home = () => {
                 <span className="text-danger" >Welcome to my aplication! </span>
             </div>
 
-            <form className = 'mt-5' onSubmit = { isLogin } >
+            <form className = 'mt-5'
+            onSubmit = {
+                isLogin
+            }
+            autoComplete = 'off' >
                 <div className="form-group">
                     <label htmlFor="exampleInputEmail1">User name:</label>
                     <input 

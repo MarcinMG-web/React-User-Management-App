@@ -167,34 +167,24 @@
   ],
   "events": [
     {
-      "id": 1,
-      "title": "event 1",
-      "date": "2021-02-02"
+      "title": "call to: 741-789-963",
+      "date": "2021-02-15",
+      "id": 1
     },
     {
-      "id": 2,
-      "title": "event 2",
-      "date": "2021-02-04"
+      "title": "new delevery",
+      "date": "2021-02-11",
+      "id": 2
     },
     {
-      "id": 3,
-      "title": "event 3",
-      "date": "2021-02-10"
+      "title": "buy books",
+      "date": "2021-02-18",
+      "id": 3
     },
     {
-      "title": "new event 4 ",
-      "date": "2021-02-14",
+      "title": "take part of conferance",
+      "date": "2021-02-08",
       "id": 4
-    },
-    {
-      "title": "add new event",
-      "date": "2021-02-19",
-      "id": 5
-    },
-    {
-      "title": "event?",
-      "date": "2021-02-24",
-      "id": 6
     }
   ]
 }

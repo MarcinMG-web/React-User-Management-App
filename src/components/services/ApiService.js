@@ -77,8 +77,17 @@ export const getAllEvents = async () => {
 }
 
 export const postNewEvent = async (newEvent) => {
-    return await api.post(`/events`, newEvent)
+    return await api.post(`/events/`, newEvent)
 
+        .then(({
+            data
+        }) => data)
+
+        .catch(err => console.log(err));
+}
+
+export const deleteEventById = async (eventId) => {
+    return await api.delete(`/events/${eventId}`)
         .then(({
             data
         }) => data)

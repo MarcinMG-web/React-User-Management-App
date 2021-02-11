@@ -1,12 +1,12 @@
 import React, { useState, useEffect }  from 'react'
 import { Link, useHistory } from 'react-router-dom'
 
-import { getAllEvents } from '../services/ApiService'
+import { getAllEvents, deleteEventById } from '../services/ApiService'
 import { postNewEvent } from '../services/ApiService' 
 
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
-import interactionPlugin from "@fullcalendar/interaction"
+import interactionPlugin from '@fullcalendar/interaction'
 
 export const Calendary = () => {
     
@@ -25,28 +25,37 @@ export const Calendary = () => {
         setEvents(dataEvents)
     }
             
-    const handleDateClick = (arg) => {
-        alert(arg.dateStr)
+    const deleteEvent = async (eventId) => {
+        await deleteEventById(eventId)
+    }
+
+    const handleDateClick = (info) => {
+        const infoDelete = window.confirm(`Are you sure to delete this record? `)
+       
+        if (infoDelete){
+            info.event.remove()
+            deleteEvent(info.event.id)
+        }
+    
     }
 
     const clickDate = (info) => {
-        console.log('click date: ')
         
         const title = prompt('Event Title:');
+      
+        if (title){            
 
-        if (title){
             postNewEvent({
-                "title": title,
-                "date": info.dateStr
+                'title': title,
+                'date': info.dateStr,
             })
-        }
-
+        }   
+        
         history.push('/calendary')
         getEvents()
     }
-
-    
-    
+   
+	
     return (
        <div className = 'container'>
                 <div className = 'py-4 d-flex' >
@@ -66,12 +75,13 @@ export const Calendary = () => {
             <small id="emailHelp" className="form-text text-muted">
                            Set day to add event
             </small>
+
             {/* Calendary */}
 
             <FullCalendar
-               plugins = {
-                   [dayGridPlugin, interactionPlugin]
-               }
+                plugins = {
+                    [dayGridPlugin, interactionPlugin]
+                }
                 initialView="dayGridMonth"
                 events = {
                     events
@@ -82,7 +92,6 @@ export const Calendary = () => {
                 dateClick = {
                     clickDate
                 }
-                
             />
             
         </div>
