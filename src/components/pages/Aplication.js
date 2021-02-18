@@ -7,6 +7,8 @@ const Aplication = () => {
     const [users, setUsers] = useState([])
     const [islogout, setIslogout] = useState(false)
 
+    const [q, setQ] = useState('')
+
     useEffect(() => {
         
         getUsers()
@@ -58,8 +60,19 @@ const Aplication = () => {
         setTimeout(spinnerDelay, 500);
     }
    
+    // Serch 
+    const search = (rows) => {
+    
+        return rows.filter((row) => 
+            row.name.toLowerCase().indexOf(q) > -1 ||
+            row.company.toLowerCase().indexOf(q) > -1 || 
+            row.email.toLowerCase().indexOf(q) > -1 || 
+            row.phone.toLowerCase().indexOf(q) > -1 
+        )
+    }
+
     if (islogout) {
-        return <Redirect to = "/" / > ;
+        return <Redirect to = '/' /> ;
     }
 
     return (
@@ -99,13 +112,23 @@ const Aplication = () => {
 
             </div>
 
-            <div id="spinner" className="loading"></div>
+
+            <input type='text' 
+                className='form-control mt-4 mb-4'  
+                placeholder = 'Search ...'
+                name='search' 
+                value = {q}
+                onChange = {(e) => setQ(e.target.value)}
+                autoComplete = 'off'
+            />
+
+            <div id='spinner' className='loading'></div>
 
             <div className = "table-responsive text-center " >
                 <table className = "table table-striped table-dark text-center align-items-center" >
                     <thead>
                         <tr>
-                            <th >#</th>
+                            <th>#</th>
                             <th scope="col" 
                                 className = 'headingTable' 
                                 onClick={() => isSortClick('name')}
@@ -131,9 +154,10 @@ const Aplication = () => {
                     </thead>
                     
                      <tbody >
-                        {users.map((user, index) =>
-                            <tr key = {user.id}>
-                                <th scope="row" >{index + 1}</th>
+                        {
+                           search(users).map((user, index) =>
+                            <tr key = { user.id } > 
+                                <th scope='row' >{index + 1}</th>
                                 <td className = 'columnTable'>{user.name}</td>
                                 <td className = 'columnTable'>{user.company}</td>
                                 <td className = 'columnTable'>{user.email}</td>
@@ -142,7 +166,7 @@ const Aplication = () => {
                                     <Link 
                                         className = "btn btn-outline-success mr-2"
                                         to = {`/users/ViewUser/${user.id}`}
-                                        >View
+                                        >   View
                                     </Link>
                                     <Link 
                                         className = "btn btn-outline-light mr-2"
@@ -159,7 +183,7 @@ const Aplication = () => {
                                 </td>
                             </tr>
                         )}   
-                    </tbody>
+                        </tbody>
                     
                 </table>
             </div>

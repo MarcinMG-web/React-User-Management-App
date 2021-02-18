@@ -1,8 +1,8 @@
 import React, { useState, useEffect }  from 'react'
 import { Link, useHistory } from 'react-router-dom'
 
-import { getAllEvents, deleteEventById } from '../services/ApiService'
-import { postNewEvent } from '../services/ApiService' 
+import { getAllEvents, deleteEventById, postNewEvent } from '../services/ApiService'
+
 
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
@@ -30,7 +30,8 @@ export const Calendary = () => {
     }
 
     const handleDateClick = (info) => {
-        const infoDelete = window.confirm(`Are you sure to delete this record? `)
+        
+        const infoDelete = window.confirm(`Are you sure to delete this record?  `)
        
         if (infoDelete){
             info.event.remove()
@@ -40,7 +41,7 @@ export const Calendary = () => {
     }
 
     const clickDate = (info) => {
-        
+
         const title = prompt('Event Title:');
       
         if (title){            
