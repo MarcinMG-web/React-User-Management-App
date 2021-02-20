@@ -166,7 +166,6 @@ const Aplication = () => {
                     className='btn btn-outline-success mr-2'
                     to={`/users/ViewUser/${user.id}`}
                   >
-                    {' '}
                     View
                   </Link>
                   <Link
