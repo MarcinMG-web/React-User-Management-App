@@ -178,21 +178,6 @@
       "company": "new world company",
       "catchPhrase": "",
       "bs": ""
-    },
-    {
-      "id": 14,
-      "name": "Anda",
-      "username": "",
-      "email": "anda.team@gmail.com",
-      "street": "",
-      "suite": "",
-      "city": "",
-      "zipcode": "",
-      "phone": "147-789-963",
-      "website": "",
-      "company": "Team",
-      "catchPhrase": "",
-      "bs": ""
     }
   ],
   "events": [

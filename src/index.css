@@ -6,8 +6,19 @@
 .App {
   width: 100vw;
   height: 100vh;
+  min-width: 100px;
   margin: 0;
   padding: 0;
+}
+
+.dataTable {
+  position: relative;
+  max-width: 100vw;
+}
+
+.scrollContainer {
+  overflow-x: auto;
+  margin-right: 245px;
 }
 
 .headingTable {
@@ -19,8 +30,44 @@
   cursor: pointer;
 }
 
+.actionHeadingTable {
+  background-color: black;
+
+  position: absolute;
+  top: auto;
+  right: 0;
+  width: 245px;
+  white-space: unset;
+  text-align: center;
+  backface-visibility: hidden;
+  align-items: center;
+  text-align: center;
+
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.actionRow {
+  background-color: black;
+  margin: 0;
+  position: absolute;
+  top: auto;
+  right: 0;
+  width: 245px;
+
+  white-space: unset;
+  text-align: center;
+  align-items: center;
+  backface-visibility: hidden;
+
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
 .columnTable:hover {
-  color:greenyellow;
+  color: greenyellow;
 }
 
 /* spiner */
@@ -52,7 +99,7 @@
 }
 
 /* Not Found */
-.not-found{
+.not-found {
   display: flex;
   width: 100vw;
   height: 100vh;

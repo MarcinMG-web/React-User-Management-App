@@ -77,26 +77,26 @@ const Aplication = () => {
         <div className='d-flex  p-2'>
           <button
             type='submit'
-            className='btn btn-outline-secondary '
+            className='btn btn-outline-secondary btn-sm'
             onClick={isSignOut}
           >
             Log out
           </button>
         </div>
 
-        <h3 className='d-flex ml-auto p-2'>Main Aplication</h3>
+        <h3 className='d-flex ml-auto '>Main Aplication</h3>
 
         <div className='d-flex ml-auto p-2'>
           <Link
             type='submit'
-            className='btn btn-outline-primary mr-2'
+            className='btn btn-outline-primary mr-2 btn-sm'
             to='./calendary'
           >
             Calendary
           </Link>
           <Link
             type='submit'
-            className='btn btn-outline-warning   '
+            className='btn btn-outline-warning btn-sm'
             to='./users/AddNewUser'
           >
             Add new +
@@ -106,7 +106,7 @@ const Aplication = () => {
 
       <input
         type='text'
-        className='form-control mt-4 mb-4'
+        className='form-control mt-3 mb-4'
         placeholder='Search ...'
         name='search'
         value={q}
@@ -115,76 +115,81 @@ const Aplication = () => {
       />
 
       <div id='spinner' className='loading'></div>
+      <div className='dataTable'>
+        <div className='scrollContainer'>
+          <div className='table-responsive text-center '>
+            <table className='table table-striped table-dark text-center align-items-center'>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th
+                    scope='col'
+                    className='headingTable'
+                    onClick={() => isSortClick('name')}
+                  >
+                    Name
+                  </th>
+                  <th
+                    scope='col'
+                    className='headingTable'
+                    onClick={() => isSortClick('company')}
+                  >
+                    Company
+                  </th>
+                  <th
+                    scope='col'
+                    className='headingTable'
+                    onClick={() => isSortClick('email')}
+                  >
+                    Email
+                  </th>
+                  <th
+                    scope='col'
+                    className='headingTable'
+                    onClick={() => isSortClick('phone')}
+                  >
+                    Phone
+                  </th>
+                  <th scope='col' className='actionHeadingTable'>
+                    Action
+                  </th>
+                </tr>
+              </thead>
 
-      <div className='table-responsive text-center '>
-        <table className='table table-striped table-dark text-center align-items-center'>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th
-                scope='col'
-                className='headingTable'
-                onClick={() => isSortClick('name')}
-              >
-                Name
-              </th>
-              <th
-                scope='col'
-                className='headingTable'
-                onClick={() => isSortClick('company')}
-              >
-                Company
-              </th>
-              <th
-                scope='col'
-                className='headingTable'
-                onClick={() => isSortClick('email')}
-              >
-                Email
-              </th>
-              <th
-                scope='col'
-                className='headingTable'
-                onClick={() => isSortClick('phone')}
-              >
-                Phone
-              </th>
-              <th scope='col'>Action</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {search(users).map((user, index) => (
-              <tr key={user.id}>
-                <th scope='row'>{index + 1}</th>
-                <td className='columnTable'>{user.name}</td>
-                <td className='columnTable'>{user.company}</td>
-                <td className='columnTable'>{user.email}</td>
-                <td className='columnTable'>{user.phone}</td>
-                <td>
-                  <Link
-                    className='btn btn-outline-success mr-2'
-                    to={`/users/ViewUser/${user.id}`}
-                  >
-                    View
-                  </Link>
-                  <Link
-                    className='btn btn-outline-light mr-2'
-                    to={`/users/EditUser/${user.id}`}
-                  >
-                    Edit
-                  </Link>
-                  <Link
-                    className='btn btn-outline-danger mr-2'
-                    onClick={() => deleteUser(user.id)}
-                  >
-                    Delete
-                  </Link>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+              <tbody>
+                {search(users).map((user, index) => (
+                  <tr key={user.id}>
+                    <th scope='row'>{index + 1}</th>
+                    <td className='columnTable'>{user.name}</td>
+                    <td className='columnTable'>{user.company}</td>
+                    <td className='columnTable'>{user.email}</td>
+                    <td className='columnTable'>{user.phone}</td>
+                    <td className='actionRow px-0 py-0'>
+                      <Link
+                        className='btn btn-outline-success mr-2 btn-sm'
+                        to={`/users/ViewUser/${user.id}`}
+                      >
+                        View
+                      </Link>
+                      <Link
+                        className='btn btn-outline-light mr-2 btn-sm'
+                        to={`/users/EditUser/${user.id}`}
+                      >
+                        Edit
+                      </Link>
+                      <Link
+                        className='btn btn-outline-danger btn-sm'
+                        onClick={() => deleteUser(user.id)}
+                      >
+                        Delete
+                      </Link>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   );
