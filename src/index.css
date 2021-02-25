@@ -18,7 +18,7 @@
 
 .scrollContainer {
   overflow-x: auto;
-  margin-right: 245px;
+  margin-right: 200px;
 }
 
 .headingTable {
@@ -36,7 +36,7 @@
   position: absolute;
   top: auto;
   right: 0;
-  width: 245px;
+  width: 200px;
   white-space: unset;
   text-align: center;
   backface-visibility: hidden;
@@ -54,7 +54,7 @@
   position: absolute;
   top: auto;
   right: 0;
-  width: 245px;
+  width: 200px;
 
   white-space: unset;
   text-align: center;

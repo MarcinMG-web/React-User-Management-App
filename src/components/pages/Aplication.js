@@ -84,19 +84,19 @@ const Aplication = () => {
           </button>
         </div>
 
-        <h3 className='d-flex ml-auto '>Main Aplication</h3>
+        <h4 className='d-flex ml-auto p-2'>Main Aplication</h4>
 
-        <div className='d-flex ml-auto p-2'>
+        <div className='d-flex ml-auto p-2 text-center'>
           <Link
             type='submit'
-            className='btn btn-outline-primary mr-2 btn-sm'
+            className='btn btn-outline-primary mr-2 btn-sm '
             to='./calendary'
           >
             Calendary
           </Link>
           <Link
             type='submit'
-            className='btn btn-outline-warning btn-sm'
+            className='btn btn-outline-warning btn-sm '
             to='./users/AddNewUser'
           >
             Add new +
