@@ -89,14 +89,14 @@ const Aplication = () => {
         <div className='d-flex ml-auto p-2 text-center'>
           <Link
             type='submit'
-            className='btn btn-outline-primary mr-2 btn-sm '
+            className='btn btn-outline-primary mr-2 p-2 btn-sm '
             to='./calendary'
           >
             Calendary
           </Link>
           <Link
             type='submit'
-            className='btn btn-outline-warning btn-sm '
+            className='btn btn-outline-warning p-2 btn-sm '
             to='./users/AddNewUser'
           >
             Add new +
@@ -166,19 +166,19 @@ const Aplication = () => {
                     <td className='columnTable'>{user.phone}</td>
                     <td className='actionRow px-0 py-0'>
                       <Link
-                        className='btn btn-outline-success mr-2 btn-sm'
+                        className='btn btn-outline-success mr-2 mt-2 btn-sm'
                         to={`/users/ViewUser/${user.id}`}
                       >
                         View
                       </Link>
                       <Link
-                        className='btn btn-outline-light mr-2 btn-sm'
+                        className='btn btn-outline-light mr-2 mt-2 btn-sm'
                         to={`/users/EditUser/${user.id}`}
                       >
                         Edit
                       </Link>
                       <Link
-                        className='btn btn-outline-danger btn-sm'
+                        className='btn btn-outline-danger mt-2 btn-sm'
                         onClick={() => deleteUser(user.id)}
                       >
                         Delete
