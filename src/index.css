@@ -60,7 +60,7 @@
   text-align: center;
   align-items: center;
   backface-visibility: hidden;
- 
+
   word-wrap: break-word;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -70,7 +70,7 @@
   color: greenyellow;
 }
 
-/* spiner */
+/* spinier */
 #spinner {
   display: none;
   margin-left: auto;

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 import { getAllUsers, deleteUserById } from '../services/ApiService';
 
-const Aplication = () => {
+const Application = () => {
   const [users, setUsers] = useState([]);
   const [islogout, setIslogout] = useState(false);
 
@@ -13,8 +13,8 @@ const Aplication = () => {
   }, []);
 
   const getUsers = async () => {
-    const dataUsers = await getAllUsers();
-    setUsers(dataUsers);
+    const users = await getAllUsers();
+    setUsers(users);
   };
 
   const deleteUser = async (userId) => {
@@ -45,7 +45,7 @@ const Aplication = () => {
     setUsers(user);
   };
 
-  // Spiner
+  // Spinier
   const spinner = () => {
     document.getElementById('spinner').style.display = 'flex';
   };
@@ -56,7 +56,7 @@ const Aplication = () => {
     setTimeout(spinnerDelay, 500);
   };
 
-  // Serch
+  // Search
   const search = (rows) => {
     return rows.filter(
       (row) =>
@@ -84,15 +84,15 @@ const Aplication = () => {
           </button>
         </div>
 
-        <h4 className='d-flex ml-auto p-2'>Main Aplication</h4>
+        <h4 className='d-flex ml-auto p-2'>Main Application</h4>
 
         <div className='d-flex ml-auto p-2 text-center'>
           <Link
             type='submit'
             className='btn btn-outline-primary mr-2 p-2 btn-sm '
-            to='./calendary'
+            to='./calendar'
           >
-            Calendary
+            Calendar
           </Link>
           <Link
             type='submit'
@@ -115,6 +115,7 @@ const Aplication = () => {
       />
 
       <div id='spinner' className='loading'></div>
+
       <div className='dataTable'>
         <div className='scrollContainer'>
           <div className='table-responsive text-center '>
@@ -195,4 +196,4 @@ const Aplication = () => {
   );
 };
 
-export default Aplication;
+export default Application;

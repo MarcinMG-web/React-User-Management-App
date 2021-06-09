@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { Link, useHistory, useParams } from "react-router-dom";
-import { getUserById, putNewUserById } from "../services/ApiService";
+import React, { useState, useEffect } from 'react';
+import { Link, useHistory, useParams } from 'react-router-dom';
+import { getUserById, putNewUserById } from '../services/ApiService';
 
 const EditUser = () => {
   let history = useHistory();
@@ -8,19 +8,19 @@ const EditUser = () => {
   const { userId } = useParams();
 
   const initUser = {
-    id: "",
-    name: "",
-    username: "",
-    email: "",
-    street: "",
-    suite: "",
-    city: "",
-    zipcode: "",
-    phone: "",
-    website: "",
-    company: "",
-    catchPhrase: "",
-    bs: "",
+    id: '',
+    name: '',
+    username: '',
+    email: '',
+    street: '',
+    suite: '',
+    city: '',
+    zipcode: '',
+    phone: '',
+    website: '',
+    company: '',
+    catchPhrase: '',
+    bs: '',
   };
 
   const [newUser, setNewUser] = useState(initUser);
@@ -53,7 +53,7 @@ const EditUser = () => {
     e.preventDefault();
 
     await putNewUserById(userId, newUser);
-    history.push("/aplication");
+    history.push('/application');
   };
 
   const loadUser = async () => {
@@ -70,9 +70,9 @@ const EditUser = () => {
           <Link
             type='submit'
             className='btn btn-outline-warning pull-right'
-            to='/Aplication'
+            to='/Application'
           >
-            Back to aplication
+            Back to application
           </Link>
         </div>
       </div>
@@ -82,7 +82,7 @@ const EditUser = () => {
       </small>
 
       <form onSubmit={(e) => handleSubmitForm(e)}>
-        <span>Main inforamtion:</span>
+        <span>Main information:</span>
 
         <div className='input-group mb-3'>
           <input

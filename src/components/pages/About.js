@@ -4,7 +4,7 @@ const About = () => {
   return (
     <div className='container'>
       <div className='py-4'>
-        <h1>About Aplication</h1>
+        <h1>About Application</h1>
 
         <p className='lead py-4'>
             Created React routing application, single page application. CRUD.
@@ -13,7 +13,7 @@ const About = () => {
             User set the input box (username and password) and identified manually
             (without API and JWT tokens). Then checks if the user and password
             match, the user will be automatically transferred on the main
-            aplication. Aplication includes protection for a page. The rendering
+            application. Application includes protection for a page. The rendering
             component will check whether the localstorage item already has the
             token item ? If yes, the route will continue on the destination
             page. Otherwise, react will call the Redirect component to redirect to
@@ -26,7 +26,7 @@ const About = () => {
             alphabetically according to the values in the column you clicked.
           <br />
           <br />
-            Aplication includes sercher. User may filter data JSON in table by key words.
+            Application includes searcher. User may filter data JSON in table by key words.
           <br />
           <br />
             React application using: React router, json-server, Bootstrap and

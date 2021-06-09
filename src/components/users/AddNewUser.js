@@ -35,7 +35,7 @@ const AddNewUser = () => {
 
     const setNewUserForFrom = async () => {
       await postNewUser(newUser);
-      history.push('/aplication');
+      history.push('/application');
     };
 
     setNewUserForFrom();
@@ -50,9 +50,9 @@ const AddNewUser = () => {
           <Link
             type='submit'
             className='btn btn-outline-warning  pull-right'
-            to='../Aplication'
+            to='../Application'
           >
-            Back to aplication
+            Back to application
           </Link>
         </div>
       </div>
@@ -62,7 +62,7 @@ const AddNewUser = () => {
       </small>
 
       <form onSubmit={handleSubmitForm}>
-        <span>Main inforamtion:</span>
+        <span>Main information:</span>
 
         <div className='input-group mb-3'>
           <input

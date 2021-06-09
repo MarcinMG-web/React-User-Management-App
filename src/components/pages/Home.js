@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 
 const Home = () => {
-  const [islogged, setIslogged] = useState(false);
+  const [islogIn, setIslogIn] = useState(false);
   const [loginParams, setLoginParams] = useState({
     name: '',
     password: '',
@@ -21,23 +21,23 @@ const Home = () => {
 
     if (name === 'admin' && password === '123') {
       localStorage.setItem('token', 'T');
-      setIslogged(true);
+      setIslogIn(true);
     } else {
-      alert('Try again to get acces !');
+      alert('Try again to get access !');
     }
 
     e.preventDefault();
   };
 
-  if (islogged) {
-    return <Redirect from='/' to='/Aplication' />;
+  if (islogIn) {
+    return <Redirect from='/' to='/Application' />;
   }
 
   return (
     <div className='container'>
       <div className='py-4'>
         <h1>Home Page</h1>
-        <span className='text-danger'>Welcome to my aplication! </span>
+        <span className='text-danger'>Welcome to my application! </span>
       </div>
 
       <form className='mt-5' onSubmit={isLogin} autoComplete='off'>

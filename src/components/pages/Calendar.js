@@ -11,7 +11,7 @@ import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 
-export const Calendary = () => {
+export const Calendar = () => {
   let history = useHistory();
 
   const [events, setEvents] = useState([]);
@@ -48,22 +48,22 @@ export const Calendary = () => {
       });
     }
 
-    history.push('/calendary');
+    history.push('/calendar');
     getEvents();
   };
 
   return (
     <div className='container'>
       <div className='py-4 d-flex'>
-        <h1>Calendary</h1>
+        <h1>Calendar</h1>
 
         <div className='d-flex ml-auto p-2'>
           <Link
             type='submit'
             className='btn btn-outline-warning  pull-right'
-            to='../Aplication'
+            to='../Application'
           >
-            Back to aplication
+            Back to application
           </Link>
         </div>
       </div>
@@ -72,7 +72,7 @@ export const Calendary = () => {
         Set day to add event
       </small>
 
-      {/* Calendary */}
+      {/* Calendar */}
 
       <FullCalendar
         plugins={[dayGridPlugin, interactionPlugin]}

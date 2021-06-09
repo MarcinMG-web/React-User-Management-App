@@ -24,9 +24,9 @@ const ViewUser = () => {
           <Link
             type='submit'
             className='btn btn-outline-warning pull-right'
-            to='/Aplication'
+            to='/Application'
           >
-            Back to aplication
+            Back to application
           </Link>
         </div>
       </div>
@@ -36,7 +36,7 @@ const ViewUser = () => {
         <li className='list-group-item text-info'>
           User name: {userByID.username}
         </li>
-        <li className='list-group-item text-info'>Emial: {userByID.email}</li>
+        <li className='list-group-item text-info'>Email: {userByID.email}</li>
         <li className='list-group-item text-info'>Phone: {userByID.phone}</li>
       </ul>
       <br />
