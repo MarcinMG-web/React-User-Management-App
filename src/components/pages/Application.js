@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 import { getAllUsers, deleteUserById } from '../services/ApiService';
 
+
 const Application = () => {
   const [users, setUsers] = useState([]);
   const [islogout, setIslogout] = useState(false);
@@ -161,7 +162,9 @@ const Application = () => {
                 {search(users).map((user, index) => (
                   <tr key={user.id}>
                     <th scope='row'>{index + 1}</th>
-                    <td className='columnTable'>{user.name}</td>
+                    <td className='columnTable'>
+                      {user.name}
+                    </td>
                     <td className='columnTable'>{user.company}</td>
                     <td className='columnTable'>{user.email}</td>
                     <td className='columnTable'>{user.phone}</td>
