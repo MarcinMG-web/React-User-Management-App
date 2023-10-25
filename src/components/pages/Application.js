@@ -162,9 +162,7 @@ const Application = () => {
                 {search(users).map((user, index) => (
                   <tr key={user.id}>
                     <th scope='row'>{index + 1}</th>
-                    <td className='columnTable'>
-                      {user.name}
-                    </td>
+                    <td className='columnTable'>{user.name}</td>
                     <td className='columnTable'>{user.company}</td>
                     <td className='columnTable'>{user.email}</td>
                     <td className='columnTable'>{user.phone}</td>
@@ -184,6 +182,7 @@ const Application = () => {
                       <Link
                         className='btn btn-outline-danger mt-2 btn-sm'
                         onClick={() => deleteUser(user.id)}
+                        to={'/Application'}
                       >
                         Delete
                       </Link>
