@@ -12,9 +12,10 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 
 export default function Calendar(): JSX.Element {
+  const [events, setEvents] = useState([]);
   const { push } = useHistory();
 
-  const [events, setEvents] = useState([]);
+  const plugins = [dayGridPlugin, interactionPlugin];
 
   useEffect(() => {
     getEvents();
@@ -29,23 +30,22 @@ export default function Calendar(): JSX.Element {
     await deleteEventById(eventId);
   };
 
-  const handleDateClick = (info: EventClickArg): void => {
+  const handleDateClick = (clickDay: EventClickArg): void => {
     const infoDelete = window.confirm('Are you sure to delete this record?');
 
     if (infoDelete) {
-      info.event.remove();
-
-      deleteEvent(info.event.id);
+      clickDay.event.remove();
+      deleteEvent(clickDay.event.id);
     }
   };
 
-  const clickDate = (info: DatePointApi): void => {
+  const clickDate = (clickDay: DatePointApi): void => {
     const title = prompt('Event Title:');
 
     if (title) {
       postNewEvent({
         title: title,
-        date: info.dateStr,
+        date: clickDay.dateStr,
       });
     }
 
@@ -74,7 +74,7 @@ export default function Calendar(): JSX.Element {
       </small>
 
       <FullCalendar
-        plugins={[dayGridPlugin, interactionPlugin]}
+        plugins={plugins}
         initialView='dayGridMonth'
         events={events}
         eventClick={handleDateClick}
