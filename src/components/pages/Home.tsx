@@ -16,8 +16,8 @@ export default function Home(): JSX.Element {
   };
 
   const isLogin = (): void => {
-    let name = loginParams.name;
-    let password = loginParams.password;
+    const name = loginParams.name;
+    const password = loginParams.password;
 
     if (name === 'admin' && password === '123') {
       localStorage.setItem('token', 'T');
@@ -71,7 +71,7 @@ export default function Home(): JSX.Element {
             type='submit'
             value='Login'
           >
-            Let's get started
+            Let`s get started
           </button>
         </div>
       </form>

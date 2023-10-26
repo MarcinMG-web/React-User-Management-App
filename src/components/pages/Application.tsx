@@ -30,6 +30,8 @@ export default function Application(): JSX.Element {
     setIsLogout(true);
   };
 
+  
+
   // Sort
   const isSortClick = (properties: string): void => {
     spinner();
@@ -54,10 +56,12 @@ export default function Application(): JSX.Element {
 
   // Spinier
   const spinner = (): void => {
+    // eslint-disable-next-line  @typescript-eslint/no-non-null-assertion
     document.getElementById('spinner')!.style.display = 'flex';
   };
   const stopSpinner = () => {
     const spinnerDelay = () => {
+      // eslint-disable-next-line  @typescript-eslint/no-non-null-assertion
       document.getElementById('spinner')!.style.display = 'none';
     };
     setTimeout(spinnerDelay, 500);

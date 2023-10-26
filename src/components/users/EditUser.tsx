@@ -19,7 +19,6 @@ export default function EditUser(): JSX.Element {
 
   useEffect(() => {
     loadUser();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleSubmitForm = async (

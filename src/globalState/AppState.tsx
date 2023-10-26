@@ -21,7 +21,7 @@ interface AppProviderProps extends Partial<State> {
   children: ReactNode;
 }
 
-function AppProvider({ children, ...rest }: AppProviderProps): JSX.Element {
+function AppProvider({ children }: AppProviderProps): JSX.Element {
   const [state, dispatch] = useReducer(appReducer, initialState);
 
   const value = useMemo(() => ({ state, dispatch }), [state]);

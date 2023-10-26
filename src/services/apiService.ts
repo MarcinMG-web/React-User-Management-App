@@ -16,7 +16,7 @@ const api = axios.create({
 
 export const getAllUsers = async () => {
   try {
-    return await api.get(`/users`).then(({ data }) => data);
+    return await api.get('/users').then(({ data }) => data);
   } catch (error) {
     throw new Error(`Network response was not ok ${error}`);
   }
@@ -24,7 +24,7 @@ export const getAllUsers = async () => {
 
 export const postNewUser = async (newUser: IInitialUser) => {
   return await api
-    .post(`/users`, newUser)
+    .post('/users', newUser)
 
     .then(({ data }) => data)
 
@@ -74,7 +74,7 @@ export const deleteUserById = async (userId: IRouteParams['userId']) => {
 
 export const getAllEvents = async () => {
   try {
-    return await api.get(`/events`).then(({ data }) => data);
+    return await api.get('/events').then(({ data }) => data);
   } catch (error) {
     throw new Error(`Network response was not ok ${error}`);
   }
@@ -85,7 +85,7 @@ export const postNewEvent = async (newEvent: {
   date: string;
 }) => {
   return await api
-    .post(`/events/`, newEvent)
+    .post('/events/', newEvent)
 
     .then(({ data }) => data)
 
