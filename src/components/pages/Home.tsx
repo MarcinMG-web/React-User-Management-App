@@ -28,7 +28,7 @@ export default function Home(): JSX.Element {
   };
 
   if (isLogIn) {
-    return <Redirect from='/' to='/Application' />;
+    return <Redirect from='/' to='/application' />;
   }
 
   return (

@@ -34,7 +34,7 @@ export default function AddNewUser() {
           <Link
             type='submit'
             className='btn btn-outline-warning  pull-right'
-            to='../Application'
+            to='../application'
           >
             Back to application
           </Link>

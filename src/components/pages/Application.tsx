@@ -190,7 +190,7 @@ export default function Application(): JSX.Element {
                       <Link
                         className='btn btn-outline-danger mt-2 btn-sm'
                         onClick={() => deleteUser(user.id)}
-                        to={'/Application'}
+                        to={'/application'}
                       >
                         Delete
                       </Link>

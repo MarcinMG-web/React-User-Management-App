@@ -27,7 +27,7 @@ export default function ViewUser(): JSX.Element {
           <Link
             type='submit'
             className='btn btn-outline-warning pull-right'
-            to='/Application'
+            to='/application'
           >
             Back to application
           </Link>
