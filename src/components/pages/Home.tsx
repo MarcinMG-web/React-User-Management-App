@@ -1,35 +1,33 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 
-const Home = () => {
-  const [islogIn, setIslogIn] = useState(false);
+export default function Home(): JSX.Element {
+  const [isLogIn, setIsLogIn] = useState(false);
   const [loginParams, setLoginParams] = useState({
     name: '',
     password: '',
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setLoginParams({
       ...loginParams,
       [e.target.name]: e.target.value,
     });
   };
 
-  const isLogin = (e) => {
+  const isLogin = (): void => {
     let name = loginParams.name;
     let password = loginParams.password;
 
     if (name === 'admin' && password === '123') {
       localStorage.setItem('token', 'T');
-      setIslogIn(true);
+      setIsLogIn(true);
     } else {
       alert('Try again to get access !');
     }
-
-    e.preventDefault();
   };
 
-  if (islogIn) {
+  if (isLogIn) {
     return <Redirect from='/' to='/Application' />;
   }
 
@@ -79,6 +77,4 @@ const Home = () => {
       </form>
     </div>
   );
-};
-
-export default Home;
+}

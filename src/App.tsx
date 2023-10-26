@@ -14,9 +14,9 @@ import ViewUser from './components/users/ViewUser';
 import EditUser from './components/users/EditUser';
 
 import ProtectedRoute from './components/pages/ProtectedRoute';
-import { Calendar } from './components/pages/Calendar';
+import Calendar  from './components/pages/Calendar';
 
-function App() {
+export default function App(): JSX.Element {
   return (
     <Router>
       <div className='App'>
@@ -40,5 +40,3 @@ function App() {
     </Router>
   );
 }
-
-export default App;

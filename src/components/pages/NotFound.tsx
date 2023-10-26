@@ -1,11 +1,9 @@
 import React from 'react';
 
-const NotFound = () => {
+export default function NotFound(): JSX.Element {
   return (
     <div>
       <h3 className='not-found'> Page not found... :/</h3>
     </div>
   );
-};
-
-export default NotFound;
+}

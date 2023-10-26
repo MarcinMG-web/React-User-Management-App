@@ -1,67 +1,76 @@
-import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import { postNewUser } from '../services/ApiService';
+import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
+import { Link, useHistory, useParams } from 'react-router-dom';
+import { getUserById, putNewUserById } from '../../services/apiService';
+import { IRouteParams } from '../../interface/interface';
+import { initialUser } from '../../helpers/initialValues';
 
-const AddNewUser = () => {
-  let history = useHistory();
+export default function EditUser(): JSX.Element {
+  const { push } = useHistory();
+  const { userId } = useParams<IRouteParams>();
 
-  const initUser = {
-    id: '',
-    name: '',
-    username: '',
-    email: '',
-    street: '',
-    suite: '',
-    city: '',
-    zipcode: '',
-    phone: '',
-    website: '',
-    company: '',
-    catchPhrase: '',
-    bs: '',
-  };
+  const [newUser, setNewUser] = useState(initialUser);
 
-  const [newUser, setNewUser] = useState(initUser);
-
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setNewUser({
       ...newUser,
-      [e.target.name]: e.target.value.trim(),
+      [e.target.name]: e.target.value,
     });
   };
 
-  const handleSubmitForm = (e) => {
+  useEffect(() => {
+    loadUser();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const handleSubmitForm = async (
+    e: FormEvent<HTMLFormElement>
+  ): Promise<void> => {
+    await putNewUserById(userId, newUser);
+
+    push('/application');
     e.preventDefault();
-
-    const setNewUserForFrom = async () => {
-      await postNewUser(newUser);
-      history.push('/application');
-    };
-
-    setNewUserForFrom();
   };
+
+  const loadUser = async (): Promise<void> => {
+    const result = await getUserById(userId);
+    setNewUser(result);
+  };
+
+  const {
+    name,
+    username,
+    email,
+    street,
+    suite,
+    city,
+    zipcode,
+    phone,
+    website,
+    company,
+    bs,
+  } = newUser;
 
   return (
     <div className='container'>
       <div className='py-4 d-flex'>
-        <h1>Add new user</h1>
+        <h1>Edit user</h1>
 
         <div className='d-flex ml-auto p-2'>
           <Link
             type='submit'
-            className='btn btn-outline-warning  pull-right'
-            to='../Application'
+            className='btn btn-outline-warning pull-right'
+            to='/Application'
           >
             Back to application
           </Link>
         </div>
       </div>
 
-      <small className='form-text text-muted py-2'>
-        Enter all of input element to add new user:
+      <small id='emailHelp' className='form-text text-muted py-2'>
+        Enter all of input element to edit user:
       </small>
 
-      <form onSubmit={handleSubmitForm}>
+      <form onSubmit={(e) => handleSubmitForm(e)}>
         <span>Main information:</span>
 
         <div className='input-group mb-3'>
@@ -69,8 +78,9 @@ const AddNewUser = () => {
             type='text'
             className='form-control'
             placeholder='Enter name...'
-            name={'name'}
-            onChange={handleChange}
+            name='name'
+            value={name}
+            onChange={(e) => handleChange(e)}
           />
         </div>
         <div className='input-group mb-3'>
@@ -78,8 +88,9 @@ const AddNewUser = () => {
             type='text'
             className='form-control'
             placeholder='Enter user name...'
-            name={'username'}
-            onChange={handleChange}
+            name='username'
+            value={username}
+            onChange={(e) => handleChange(e)}
           />
         </div>
         <div className='input-group mb-3'>
@@ -87,8 +98,9 @@ const AddNewUser = () => {
             type='email'
             className='form-control'
             placeholder='Enter email...'
-            name={'email'}
-            onChange={handleChange}
+            name='email'
+            value={email}
+            onChange={(e) => handleChange(e)}
           />
         </div>
         <div className='input-group mb-3'>
@@ -96,8 +108,9 @@ const AddNewUser = () => {
             type='text'
             className='form-control'
             placeholder='Enter phone...'
-            name={'phone'}
-            onChange={handleChange}
+            name='phone'
+            value={phone}
+            onChange={(e) => handleChange(e)}
           />
         </div>
 
@@ -108,8 +121,9 @@ const AddNewUser = () => {
             type='text'
             className='form-control'
             placeholder='Enter street...'
-            name={'street'}
-            onChange={handleChange}
+            name='street'
+            value={street}
+            onChange={(e) => handleChange(e)}
           />
         </div>
         <div className='input-group mb-3'>
@@ -117,8 +131,9 @@ const AddNewUser = () => {
             type='text'
             className='form-control'
             placeholder='Enter suite...'
-            name={'suite'}
-            onChange={handleChange}
+            name='suite'
+            value={suite}
+            onChange={(e) => handleChange(e)}
           />
         </div>
         <div className='input-group mb-3'>
@@ -126,8 +141,9 @@ const AddNewUser = () => {
             type='text'
             className='form-control'
             placeholder='Enter city...'
-            name={'city'}
-            onChange={handleChange}
+            name='city'
+            value={city}
+            onChange={(e) => handleChange(e)}
           />
         </div>
         <div className='input-group mb-3'>
@@ -135,8 +151,9 @@ const AddNewUser = () => {
             type='text'
             className='form-control'
             placeholder='Enter zipcode...'
-            name={'zipcode'}
-            onChange={handleChange}
+            name='zipcode'
+            value={zipcode}
+            onChange={(e) => handleChange(e)}
           />
         </div>
 
@@ -147,8 +164,9 @@ const AddNewUser = () => {
             type='text'
             className='form-control'
             placeholder='Enter company...'
-            name={'company'}
-            onChange={handleChange}
+            name='company'
+            value={company}
+            onChange={(e) => handleChange(e)}
           />
         </div>
         <div className='input-group mb-3'>
@@ -156,8 +174,9 @@ const AddNewUser = () => {
             type='text'
             className='form-control'
             placeholder='Enter website...'
-            name={'website'}
-            onChange={handleChange}
+            name='website'
+            value={website}
+            onChange={(e) => handleChange(e)}
           />
         </div>
         <div className='input-group mb-3'>
@@ -165,18 +184,18 @@ const AddNewUser = () => {
             type='text'
             className='form-control'
             placeholder='Enter comments...'
-            name={'bs'}
-            onChange={handleChange}
+            name='bs'
+            value={bs}
+            onChange={(e) => handleChange(e)}
           />
         </div>
+
         <div className='panel-body'>
           <button className='btn btn-outline-secondary btn-block' type='submit'>
-            Add user
+            Edit user
           </button>
         </div>
       </form>
     </div>
   );
-};
-
-export default AddNewUser;
+}

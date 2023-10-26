@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
-const ProtectedRoute = ({ children, ...rest }) => {
+type TProtectedRoute = {
+  path: string;
+  children: ReactNode;
+};
+
+export default function ProtectedRoute({ children, ...rest }: TProtectedRoute) {
   return (
     <Route
       {...rest}
@@ -19,6 +24,4 @@ const ProtectedRoute = ({ children, ...rest }) => {
       }
     />
   );
-};
-
-export default ProtectedRoute;
+}

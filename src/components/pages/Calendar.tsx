@@ -5,14 +5,14 @@ import {
   getAllEvents,
   deleteEventById,
   postNewEvent,
-} from '../services/ApiService';
+} from '../../services/apiService';
 
-import FullCalendar from '@fullcalendar/react';
+import FullCalendar, { DatePointApi, EventClickArg } from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 
-export const Calendar = () => {
-  let history = useHistory();
+export default function Calendar(): JSX.Element {
+  const { push } = useHistory();
 
   const [events, setEvents] = useState([]);
 
@@ -20,25 +20,26 @@ export const Calendar = () => {
     getEvents();
   }, []);
 
-  const getEvents = async () => {
+  const getEvents = async (): Promise<void> => {
     const dataEvents = await getAllEvents();
     setEvents(dataEvents);
   };
 
-  const deleteEvent = async (eventId) => {
+  const deleteEvent = async (eventId: string): Promise<void> => {
     await deleteEventById(eventId);
   };
 
-  const handleDateClick = (info) => {
-    const infoDelete = window.confirm(`Are you sure to delete this record?  `);
+  const handleDateClick = (info: EventClickArg): void => {
+    const infoDelete = window.confirm('Are you sure to delete this record?');
 
     if (infoDelete) {
       info.event.remove();
+
       deleteEvent(info.event.id);
     }
   };
 
-  const clickDate = (info) => {
+  const clickDate = (info: DatePointApi): void => {
     const title = prompt('Event Title:');
 
     if (title) {
@@ -48,7 +49,7 @@ export const Calendar = () => {
       });
     }
 
-    history.push('/calendar');
+    push('/calendar');
     getEvents();
   };
 
@@ -72,8 +73,6 @@ export const Calendar = () => {
         Set day to add event
       </small>
 
-      {/* Calendar */}
-
       <FullCalendar
         plugins={[dayGridPlugin, interactionPlugin]}
         initialView='dayGridMonth'
@@ -83,4 +82,4 @@ export const Calendar = () => {
       />
     </div>
   );
-};
+}

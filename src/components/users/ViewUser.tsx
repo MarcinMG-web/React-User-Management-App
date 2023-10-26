@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { getUserById } from '../services/ApiService';
+import { getUserById } from '../../services/apiService';
+import { IRouteParams } from '../../interface/interface';
+import { initialUser } from '../../helpers/initialValues';
 
-const ViewUser = () => {
-  const { userId } = useParams();
-  const [userByID, setUserByID] = useState('');
+export default function ViewUser(): JSX.Element {
+  const { userId } = useParams<IRouteParams>();
+
+  const [userByID, setUserByID] = useState(initialUser);
 
   useEffect(() => {
-    const getUserID = async () => {
+    const getUserID = async (): Promise<void> => {
       const getUser = await getUserById(userId);
       setUserByID(getUser);
     };
@@ -44,7 +47,9 @@ const ViewUser = () => {
         <li className='list-group-item text-info'>Street: {userByID.street}</li>
         <li className='list-group-item text-info'>Suite: {userByID.suite}</li>
         <li className='list-group-item text-info'>City: {userByID.city}</li>
-        <li className='list-group-item text-info'>Zipcode: {userByID.zipcode}</li>
+        <li className='list-group-item text-info'>
+          Zipcode: {userByID.zipcode}
+        </li>
       </ul>
       <br />
       <ul className='list-group text-left'>
@@ -58,6 +63,4 @@ const ViewUser = () => {
       </ul>
     </div>
   );
-};
-
-export default ViewUser;
+}

@@ -1,74 +1,82 @@
 import React, { useState, useEffect } from 'react';
-import { Link, Redirect } from 'react-router-dom/cjs/react-router-dom.min';
-import { getAllUsers, deleteUserById } from '../services/ApiService';
 
+import { getAllUsers, deleteUserById } from '../../services/apiService';
+import { IRouteParams } from '../../interface/interface';
+import { Redirect, Link } from 'react-router-dom';
+import { IInitialUser } from '../../helpers/initialValues';
 
-const Application = () => {
+export default function Application(): JSX.Element {
   const [users, setUsers] = useState([]);
-  const [islogout, setIslogout] = useState(false);
+  const [isLogout, setIsLogout] = useState(false);
 
-  const [q, setQ] = useState('');
+  const [queryText, setQueryText] = useState('');
 
   useEffect(() => {
     getUsers();
   }, []);
 
-  const getUsers = async () => {
+  const getUsers = async (): Promise<void> => {
     const users = await getAllUsers();
     setUsers(users);
   };
 
-  const deleteUser = async (userId) => {
+  const deleteUser = async (userId: IRouteParams['userId']): Promise<void> => {
     await deleteUserById(userId);
     getUsers();
   };
 
-  const isSignOut = () => {
+  const isSignOut = (): void => {
     localStorage.removeItem('token');
-    setIslogout(true);
+    setIsLogout(true);
   };
 
   // Sort
-  const isSortClick = (properties) => {
-    function compare(a, b) {
-      spinner();
-      if (a[properties] < b[properties]) {
-        return -1;
-      }
-      if (a[properties] > b[properties]) {
-        return 1;
-      }
-      return 0;
-    }
-    stopSpinner();
-    const user = users.sort(compare).slice();
+  const isSortClick = (properties: string): void => {
+    spinner();
 
+    const compare = (value1: never, value2: never): number => {
+      switch (true) {
+        case properties && value1[properties] < value2[properties]:
+          return -1;
+
+        case properties && value1[properties] > value2[properties]:
+          return 1;
+
+        default:
+          return 0;
+      }
+    };
+
+    const user = users.sort(compare).slice();
+    stopSpinner();
     setUsers(user);
   };
 
   // Spinier
-  const spinner = () => {
-    document.getElementById('spinner').style.display = 'flex';
+  const spinner = (): void => {
+    document.getElementById('spinner')!.style.display = 'flex';
   };
   const stopSpinner = () => {
     const spinnerDelay = () => {
-      document.getElementById('spinner').style.display = 'none';
+      document.getElementById('spinner')!.style.display = 'none';
     };
     setTimeout(spinnerDelay, 500);
   };
 
   // Search
-  const search = (rows) => {
-    return rows.filter(
-      (row) =>
-        row.name.toLowerCase().indexOf(q) > -1 ||
-        row.company.toLowerCase().indexOf(q) > -1 ||
-        row.email.toLowerCase().indexOf(q) > -1 ||
-        row.phone.toLowerCase().indexOf(q) > -1
+  const search = (arrayOfUsers: IInitialUser[]): IInitialUser[] => {
+    const trimQueryText = queryText.toLowerCase().trim();
+
+    return arrayOfUsers.filter(
+      (user) =>
+        user.name.toLowerCase().indexOf(trimQueryText) > -1 ||
+        user.company.toLowerCase().indexOf(trimQueryText) > -1 ||
+        user.email.toLowerCase().indexOf(trimQueryText) > -1 ||
+        user.phone.toLowerCase().indexOf(trimQueryText) > -1
     );
   };
 
-  if (islogout) {
+  if (isLogout) {
     return <Redirect to='/' />;
   }
 
@@ -110,8 +118,8 @@ const Application = () => {
         className='form-control mt-3 mb-4'
         placeholder='Search ...'
         name='search'
-        value={q}
-        onChange={(e) => setQ(e.target.value)}
+        value={queryText}
+        onChange={(e) => setQueryText(e.target.value)}
         autoComplete='off'
       />
 
@@ -196,6 +204,4 @@ const Application = () => {
       </div>
     </div>
   );
-};
-
-export default Application;
+}
