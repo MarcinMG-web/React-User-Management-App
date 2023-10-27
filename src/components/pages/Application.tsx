@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-
 import { getAllUsers, deleteUserById } from '../../services/apiService';
 import { IRouteParams } from '../../interface/interface';
 import { Redirect, Link } from 'react-router-dom';
 import { IInitialUser } from '../../helpers/initialValues';
+import { spinner, stopSpinner } from '../utilities/spinner';
 
 export default function Application(): JSX.Element {
   const [users, setUsers] = useState([]);
@@ -30,8 +30,6 @@ export default function Application(): JSX.Element {
     setIsLogout(true);
   };
 
-  
-
   // Sort
   const isSortClick = (properties: string): void => {
     spinner();
@@ -52,19 +50,6 @@ export default function Application(): JSX.Element {
     const user = users.sort(compare).slice();
     stopSpinner();
     setUsers(user);
-  };
-
-  // Spinier
-  const spinner = (): void => {
-    // eslint-disable-next-line  @typescript-eslint/no-non-null-assertion
-    document.getElementById('spinner')!.style.display = 'flex';
-  };
-  const stopSpinner = () => {
-    const spinnerDelay = () => {
-      // eslint-disable-next-line  @typescript-eslint/no-non-null-assertion
-      document.getElementById('spinner')!.style.display = 'none';
-    };
-    setTimeout(spinnerDelay, 500);
   };
 
   // Search
