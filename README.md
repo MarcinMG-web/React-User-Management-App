@@ -12,7 +12,7 @@ If you want to check. Download project on yours PC. Open the terminal and instal
 
     1. Open project file
     2. npm install
-    3. npm run start:dev
+    3. npm run start:mocked
     4. Open the browsers at http://localhost:3000.
 
-React application using: React router, json-server, Bootstrap and JavaScript.
+React application using: React router, json-server, Bootstrap, JavaScript and TypeScript.
