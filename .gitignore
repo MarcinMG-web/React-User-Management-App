@@ -12,7 +12,8 @@
 /build
 
 # mocked DB
-/db.json
+.db.json
+
 # misc
 .DS_Store
 .env
