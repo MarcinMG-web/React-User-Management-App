@@ -1,4 +1,4 @@
-# Single-page-application-react-router
+# React User Management App
 
 Welcome to the React User Management App, a powerful and user-friendly application designed for managing user information efficiently. This application is built using React, providing a modern and responsive user interface for seamless user interaction.
 
