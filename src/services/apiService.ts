@@ -11,6 +11,54 @@ const api = axios.create({
 });
 
 /**
+ * API Authentication
+ */
+
+export const registerNewUser = async (
+  newUserCredentials: Record<string, string>
+) => {
+  try {
+    return await api
+      .post('/auth', newUserCredentials)
+
+      .then(({ data }) => data);
+  } catch (error) {
+    throw new Error(`Network response was not ok ${error}`);
+  }
+};
+
+export const loginUser = async (loginParams: Record<string, string>) => {
+  try {
+    let login = false;
+    return await api
+      .get('/auth')
+
+      .then(({ data }) => {
+        const users = data.filter(
+          (user: Record<string, string>) =>
+            user?.name === loginParams.name &&
+            user?.password === loginParams.password
+        );
+
+        if (users.length > 0) {
+          sessionStorage.setItem('name', loginParams.name);
+          sessionStorage.setItem(
+            'token',
+            btoa(`${loginParams.name}${loginParams.password}`)
+          );
+
+          login = true;
+        } else {
+          alert('Try again to get access !');
+        }
+
+        return login;
+      });
+  } catch (error) {
+    throw new Error(`Network response was not ok ${error}`);
+  }
+};
+/**
  * API User
  */
 

@@ -11,7 +11,7 @@ export default function ProtectedRoute({ children, ...rest }: TProtectedRoute) {
     <Route
       {...rest}
       render={({ location }) =>
-        localStorage.getItem('token') ? (
+        sessionStorage.getItem('token') ? (
           children
         ) : (
           <Redirect

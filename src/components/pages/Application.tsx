@@ -11,6 +11,7 @@ export default function Application(): JSX.Element {
 
   const [queryText, setQueryText] = useState('');
 
+  const nameFromSessionStorage = sessionStorage.getItem('name');
   useEffect(() => {
     getUsers();
   }, []);
@@ -26,7 +27,7 @@ export default function Application(): JSX.Element {
   };
 
   const isSignOut = (): void => {
-    localStorage.removeItem('token');
+    sessionStorage.clear();
     setIsLogout(true);
   };
 
@@ -71,6 +72,8 @@ export default function Application(): JSX.Element {
 
   return (
     <div className='container'>
+      <span className='text-danger'>{`Welcome ${nameFromSessionStorage}`}</span>
+
       <div className='py-4 d-flex justify-content-between'>
         <div className='d-flex  p-2'>
           <button
@@ -101,7 +104,6 @@ export default function Application(): JSX.Element {
           </Link>
         </div>
       </div>
-
       <input
         type='text'
         className='form-control mt-3 mb-4'
@@ -111,9 +113,7 @@ export default function Application(): JSX.Element {
         onChange={(e) => setQueryText(e.target.value)}
         autoComplete='off'
       />
-
       <div id='spinner' className='loading'></div>
-
       <div className='dataTable'>
         <div className='scrollContainer'>
           <div className='table-responsive text-center '>

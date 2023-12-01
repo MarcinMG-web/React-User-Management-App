@@ -2,7 +2,10 @@ import React from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import Navbar from './components/layout/Navbar';
 
+import Login from './components/pages/Login';
+import Registration from './components/pages/Registration';
 import Home from './components/pages/Home';
+
 import About from './components/pages/About';
 import Application from './components/pages/Application';
 import NotFound from './components/pages/NotFound';
@@ -14,7 +17,7 @@ import ViewUser from './components/users/ViewUser';
 import EditUser from './components/users/EditUser';
 
 import ProtectedRoute from './components/pages/ProtectedRoute';
-import Calendar  from './components/pages/Calendar';
+import Calendar from './components/pages/Calendar';
 
 export default function App(): JSX.Element {
   return (
@@ -24,6 +27,8 @@ export default function App(): JSX.Element {
 
         <Switch>
           <Route exact path='/' component={Home} />
+          <Route exact path='/login' component={Login} />
+          <Route exact path='/register' component={Registration} />
           <Route exact path='/about' component={About} />
 
           <ProtectedRoute path='/application'>
