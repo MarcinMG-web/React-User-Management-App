@@ -7,7 +7,7 @@
 }
 
 .App {
-  width: 98vw;
+  width: auto;
   height: 100vh;
   min-width: 100px;
   margin: 0;
