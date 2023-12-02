@@ -12,6 +12,7 @@ export default function Application(): JSX.Element {
   const [queryText, setQueryText] = useState('');
 
   const nameFromSessionStorage = sessionStorage.getItem('name');
+  
   useEffect(() => {
     getUsers();
   }, []);

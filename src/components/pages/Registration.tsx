@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { registerNewUser } from '../../services/apiService';
 
 export default function Registration(): JSX.Element {
@@ -20,7 +20,6 @@ export default function Registration(): JSX.Element {
   const onSubmitRegistration = async (e: React.SyntheticEvent<EventTarget>) => {
     e.preventDefault();
 
-   
     const name = registerCredentials.name;
     const email = registerCredentials.email;
     const password = registerCredentials.password;
@@ -83,6 +82,13 @@ export default function Registration(): JSX.Element {
         </div>
 
         <div className='col text-center '>
+          <Link
+            type='submit'
+            className='btn btn-outline-info  px-10 py-2 m-4'
+            to='./'
+          >
+            Back to Home
+          </Link>
           <button
             className='btn btn-outline-warning  px-10 py-2'
             type='submit'
