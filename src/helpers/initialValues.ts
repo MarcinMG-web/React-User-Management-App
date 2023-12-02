@@ -1,4 +1,4 @@
-export interface IInitialUser{
+export interface IInitialUser {
   id: string;
   name: string;
   username: string;
@@ -13,18 +13,18 @@ export interface IInitialUser{
   catchPhrase: string;
   bs: string;
 }
- export const initialUser:IInitialUser = {
-    id: '',
-    name: '',
-    username: '',
-    email: '',
-    street: '',
-    suite: '',
-    city: '',
-    zipcode: '',
-    phone: '',
-    website: '',
-    company: '',
-    catchPhrase: '',
-    bs: '',
-  };
+export const initialUser: IInitialUser = {
+  id: '',
+  name: '',
+  username: '',
+  email: '',
+  street: '',
+  suite: '',
+  city: '',
+  zipcode: '',
+  phone: '',
+  website: '',
+  company: '',
+  catchPhrase: '',
+  bs: '',
+};

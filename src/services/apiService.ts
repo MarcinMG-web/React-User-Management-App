@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { IInitialUser } from '../helpers/initialValues';
-import { IRouteParams } from '../interface/interface';
+import { INewUserCredentials, IRegisterNewUser, IRouteParams } from '../interface/interface';
 
 const api = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
@@ -14,9 +14,7 @@ const api = axios.create({
  * API Authentication
  */
 
-export const registerNewUser = async (
-  newUserCredentials: Record<string, string>
-) => {
+export const registerNewUser = async (newUserCredentials: IRegisterNewUser) => {
   try {
     return await api
       .post('/auth', newUserCredentials)
@@ -27,7 +25,7 @@ export const registerNewUser = async (
   }
 };
 
-export const loginUser = async (loginParams: Record<string, string>) => {
+export const loginUser = async (loginParams: INewUserCredentials) => {
   try {
     let login = false;
     return await api
@@ -35,7 +33,7 @@ export const loginUser = async (loginParams: Record<string, string>) => {
 
       .then(({ data }) => {
         const users = data.filter(
-          (user: Record<string, string>) =>
+          (user: INewUserCredentials) =>
             user?.name === loginParams.name &&
             user?.password === loginParams.password
         );

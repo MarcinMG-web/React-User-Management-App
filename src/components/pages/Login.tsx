@@ -1,10 +1,11 @@
 import React, { ChangeEvent, useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { loginUser } from '../../services/apiService';
+import { INewUserCredentials } from '../../interface/interface';
 
 export default function Login(): JSX.Element {
   const [isLogIn, setIsLogIn] = useState(false);
-  const [loginParams, setLoginParams] = useState({
+  const [loginParams, setLoginParams] = useState<INewUserCredentials>({
     name: '',
     password: '',
   });

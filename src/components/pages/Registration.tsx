@@ -1,14 +1,16 @@
 import React, { ChangeEvent, useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { registerNewUser } from '../../services/apiService';
+import { IRegisterNewUser } from '../../interface/interface';
 
 export default function Registration(): JSX.Element {
   const [isRegister, setRegister] = useState(false);
-  const [registerCredentials, setRegisterCredentials] = useState({
-    name: '',
-    email: '',
-    password: '',
-  });
+  const [registerCredentials, setRegisterCredentials] =
+    useState<IRegisterNewUser>({
+      name: '',
+      email: '',
+      password: '',
+    });
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setRegisterCredentials({
