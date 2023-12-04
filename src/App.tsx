@@ -2,8 +2,8 @@ import React from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
 import Navbar from './components/layout/Navbar';
 
-import Login from './components/pages/Login';
-import Registration from './components/pages/Registration';
+import Login from './components/pages/authentication/Login';
+import Registration from './components/pages/authentication/Registration';
 import Home from './components/pages/Home';
 
 import About from './components/pages/About';
@@ -17,7 +17,7 @@ import ViewUser from './components/users/ViewUser';
 import EditUser from './components/users/EditUser';
 
 import ProtectedRoute from './components/pages/ProtectedRoute';
-import Calendar from './components/pages/Calendar';
+import Calendar from './components/pages/calander/Calendar';
 
 export default function App(): JSX.Element {
   return (

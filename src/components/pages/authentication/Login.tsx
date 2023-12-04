@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import { loginUser } from '../../services/apiService';
-import { INewUserCredentials } from '../../interface/interface';
+import { loginUser } from '../../../services/apiService';
+import { INewUserCredentials } from '../../../interface/interface';
 
 export default function Login(): JSX.Element {
   const [isLogIn, setIsLogIn] = useState(false);

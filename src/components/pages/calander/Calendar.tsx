@@ -5,7 +5,7 @@ import {
   getAllEvents,
   deleteEventById,
   postNewEvent,
-} from '../../services/apiService';
+} from '../../../services/apiService';
 
 import FullCalendar, { DatePointApi, EventClickArg } from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';

@@ -114,7 +114,9 @@ export default function Application(): JSX.Element {
         onChange={(e) => setQueryText(e.target.value)}
         autoComplete='off'
       />
+
       <div id='spinner' className='loading'></div>
+
       <div className='dataTable'>
         <div className='scrollContainer'>
           <div className='table-responsive text-center '>
