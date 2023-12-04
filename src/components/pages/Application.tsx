@@ -12,7 +12,7 @@ export default function Application(): JSX.Element {
   const [queryText, setQueryText] = useState('');
 
   const nameFromSessionStorage = sessionStorage.getItem('name');
-  
+
   useEffect(() => {
     getUsers();
   }, []);
@@ -33,10 +33,10 @@ export default function Application(): JSX.Element {
   };
 
   // Sort
-  const isSortClick = (properties: string): void => {
+  const isSortClick = (properties: keyof IInitialUser): void => {
     spinner();
 
-    const compare = (value1: never, value2: never): number => {
+    const compare = (value1: IInitialUser, value2: IInitialUser): number => {
       switch (true) {
         case properties && value1[properties] < value2[properties]:
           return -1;
