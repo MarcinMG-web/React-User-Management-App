@@ -6,7 +6,6 @@ export const initialState: State = {
 };
 
 // Actions
-export type Action =
-  | { type: 'SET_LOADING'; payload: boolean }
+export type Action = { type: 'SET_LOADING'; payload: boolean };
 
 export type Dispatch = (action: Action) => void;

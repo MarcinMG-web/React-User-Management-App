@@ -1,10 +1,4 @@
-import React, {
-  useReducer,
-  useContext,
-  ReactNode,
-  Dispatch,
-  useMemo,
-} from 'react';
+import React, { useReducer, useContext, ReactNode, Dispatch, useMemo } from 'react';
 import { Action, initialState } from './InitialStateAndActions';
 import { State } from './Interface';
 import { appReducer } from './Reducer';

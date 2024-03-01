@@ -64,18 +64,10 @@ export default function Login(): JSX.Element {
         </div>
 
         <div className='col text-center '>
-          <Link
-            type='submit'
-            className='btn btn-outline-info  px-10 py-2 m-4'
-            to='./'
-          >
+          <Link type='submit' className='btn btn-outline-info  px-10 py-2 m-4' to='./'>
             Back to Home
           </Link>
-          <button
-            className='btn btn-outline-warning  px-10 py-2'
-            type='submit'
-            value='Login'
-          >
+          <button className='btn btn-outline-warning  px-10 py-2' type='submit' value='Login'>
             Let`s get started!
           </button>
         </div>

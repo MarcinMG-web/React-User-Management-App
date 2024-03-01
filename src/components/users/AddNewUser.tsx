@@ -31,19 +31,13 @@ export default function AddNewUser() {
         <h1>Add new user</h1>
 
         <div className='d-flex ml-auto p-2'>
-          <Link
-            type='submit'
-            className='btn btn-outline-warning  pull-right'
-            to='../application'
-          >
+          <Link type='submit' className='btn btn-outline-warning  pull-right' to='../application'>
             Back to application
           </Link>
         </div>
       </div>
 
-      <small className='form-text text-muted py-2'>
-        Enter all of input element to add new user:
-      </small>
+      <small className='form-text text-muted py-2'>Enter all of input element to add new user:</small>
 
       <form onSubmit={handleSubmitForm}>
         <span>Main information:</span>

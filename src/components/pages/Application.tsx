@@ -53,7 +53,6 @@ export default function Application(): JSX.Element {
     stopSpinner();
     setUsers(user);
   };
-
   // Search
   const search = (arrayOfUsers: IInitialUser[]): IInitialUser[] => {
     const trimQueryText = queryText.toLowerCase().trim();
@@ -63,7 +62,7 @@ export default function Application(): JSX.Element {
         user.name.toLowerCase().indexOf(trimQueryText) > -1 ||
         user.company.toLowerCase().indexOf(trimQueryText) > -1 ||
         user.email.toLowerCase().indexOf(trimQueryText) > -1 ||
-        user.phone.toLowerCase().indexOf(trimQueryText) > -1
+        user.phone.toLowerCase().indexOf(trimQueryText) > -1,
     );
   };
 
@@ -77,11 +76,7 @@ export default function Application(): JSX.Element {
 
       <div className='py-4 d-flex justify-content-between'>
         <div className='d-flex  p-2'>
-          <button
-            type='submit'
-            className='btn btn-outline-secondary btn-sm'
-            onClick={isSignOut}
-          >
+          <button type='submit' className='btn btn-outline-secondary btn-sm' onClick={isSignOut}>
             Log out
           </button>
         </div>
@@ -89,18 +84,10 @@ export default function Application(): JSX.Element {
         <h4 className='d-flex ml-auto p-2'>Main Application</h4>
 
         <div className='d-flex ml-auto p-2 text-center'>
-          <Link
-            type='submit'
-            className='btn btn-outline-primary mr-2 p-2 btn-sm '
-            to='./calendar'
-          >
+          <Link type='submit' className='btn btn-outline-primary mr-2 p-2 btn-sm ' to='./calendar'>
             Calendar
           </Link>
-          <Link
-            type='submit'
-            className='btn btn-outline-warning p-2 btn-sm '
-            to='./users/AddNewUser'
-          >
+          <Link type='submit' className='btn btn-outline-warning p-2 btn-sm ' to='./users/AddNewUser'>
             Add new +
           </Link>
         </div>
@@ -124,32 +111,16 @@ export default function Application(): JSX.Element {
               <thead>
                 <tr>
                   <th>#</th>
-                  <th
-                    scope='col'
-                    className='headingTable'
-                    onClick={() => isSortClick('name')}
-                  >
+                  <th scope='col' className='headingTable' onClick={() => isSortClick('name')}>
                     Name
                   </th>
-                  <th
-                    scope='col'
-                    className='headingTable'
-                    onClick={() => isSortClick('company')}
-                  >
+                  <th scope='col' className='headingTable' onClick={() => isSortClick('company')}>
                     Company
                   </th>
-                  <th
-                    scope='col'
-                    className='headingTable'
-                    onClick={() => isSortClick('email')}
-                  >
+                  <th scope='col' className='headingTable' onClick={() => isSortClick('email')}>
                     Email
                   </th>
-                  <th
-                    scope='col'
-                    className='headingTable'
-                    onClick={() => isSortClick('phone')}
-                  >
+                  <th scope='col' className='headingTable' onClick={() => isSortClick('phone')}>
                     Phone
                   </th>
                   <th scope='col' className='actionHeadingTable'>
@@ -167,16 +138,10 @@ export default function Application(): JSX.Element {
                     <td className='columnTable'>{user.email}</td>
                     <td className='columnTable'>{user.phone}</td>
                     <td className='actionRow px-0 py-0'>
-                      <Link
-                        className='btn btn-outline-success mr-2 mt-2 btn-sm'
-                        to={`/users/ViewUser/${user.id}`}
-                      >
+                      <Link className='btn btn-outline-success mr-2 mt-2 btn-sm' to={`/users/ViewUser/${user.id}`}>
                         View
                       </Link>
-                      <Link
-                        className='btn btn-outline-light mr-2 mt-2 btn-sm'
-                        to={`/users/EditUser/${user.id}`}
-                      >
+                      <Link className='btn btn-outline-light mr-2 mt-2 btn-sm' to={`/users/EditUser/${user.id}`}>
                         Edit
                       </Link>
                       <Link

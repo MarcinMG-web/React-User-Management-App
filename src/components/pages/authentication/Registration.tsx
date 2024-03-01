@@ -5,12 +5,11 @@ import { IRegisterNewUser } from '../../../interface/interface';
 
 export default function Registration(): JSX.Element {
   const [isRegister, setRegister] = useState(false);
-  const [registerCredentials, setRegisterCredentials] =
-    useState<IRegisterNewUser>({
-      name: '',
-      email: '',
-      password: '',
-    });
+  const [registerCredentials, setRegisterCredentials] = useState<IRegisterNewUser>({
+    name: '',
+    email: '',
+    password: '',
+  });
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setRegisterCredentials({
@@ -84,18 +83,10 @@ export default function Registration(): JSX.Element {
         </div>
 
         <div className='col text-center '>
-          <Link
-            type='submit'
-            className='btn btn-outline-info  px-10 py-2 m-4'
-            to='./'
-          >
+          <Link type='submit' className='btn btn-outline-info  px-10 py-2 m-4' to='./'>
             Back to Home
           </Link>
-          <button
-            className='btn btn-outline-warning  px-10 py-2'
-            type='submit'
-            value='Register'
-          >
+          <button className='btn btn-outline-warning  px-10 py-2' type='submit' value='Register'>
             Register Me!
           </button>
         </div>

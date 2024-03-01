@@ -1,4 +1,4 @@
 // State
 export interface State {
-  loading: boolean
+  loading: boolean;
 }

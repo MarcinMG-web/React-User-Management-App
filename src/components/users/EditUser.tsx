@@ -21,9 +21,7 @@ export default function EditUser(): JSX.Element {
     loadUser();
   }, []);
 
-  const handleSubmitForm = async (
-    e: FormEvent<HTMLFormElement>
-  ): Promise<void> => {
+  const handleSubmitForm = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     await putNewUserById(userId, newUser);
 
     push('/application');
@@ -35,19 +33,7 @@ export default function EditUser(): JSX.Element {
     setNewUser(result);
   };
 
-  const {
-    name,
-    username,
-    email,
-    street,
-    suite,
-    city,
-    zipcode,
-    phone,
-    website,
-    company,
-    bs,
-  } = newUser;
+  const { name, username, email, street, suite, city, zipcode, phone, website, company, bs } = newUser;
 
   return (
     <div className='container'>
@@ -55,11 +41,7 @@ export default function EditUser(): JSX.Element {
         <h1>Edit user</h1>
 
         <div className='d-flex ml-auto p-2'>
-          <Link
-            type='submit'
-            className='btn btn-outline-warning pull-right'
-            to='/application'
-          >
+          <Link type='submit' className='btn btn-outline-warning pull-right' to='/application'>
             Back to application
           </Link>
         </div>

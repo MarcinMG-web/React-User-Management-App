@@ -8,7 +8,7 @@ export const appReducer = (state: State, action: Action): State => {
     case 'SET_LOADING':
       return {
         ...state,
-        loading:  action.payload,
+        loading: action.payload,
       };
 
     default: {

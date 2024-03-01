@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
-import {
-  getAllEvents,
-  deleteEventById,
-  postNewEvent,
-} from '../../../services/apiService';
+import { getAllEvents, deleteEventById, postNewEvent } from '../../../services/apiService';
 
 import FullCalendar, { DatePointApi, EventClickArg } from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
@@ -59,11 +55,7 @@ export default function Calendar(): JSX.Element {
         <h1>Calendar</h1>
 
         <div className='d-flex ml-auto p-2'>
-          <Link
-            type='submit'
-            className='btn btn-outline-warning  pull-right'
-            to='../application'
-          >
+          <Link type='submit' className='btn btn-outline-warning  pull-right' to='../application'>
             Back to application
           </Link>
         </div>
