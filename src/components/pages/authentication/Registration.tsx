@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import { registerNewUser } from '../../../services/apiService';
-import { IRegisterNewUser } from '../../../interface/interface';
+import { IRegisterNewUser } from '../../../types/interface';
+import { registerNewUser } from '../../../api/authentication';
 
 export default function Registration(): JSX.Element {
   const [isRegister, setRegister] = useState(false);

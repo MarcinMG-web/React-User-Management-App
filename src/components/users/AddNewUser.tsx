@@ -1,7 +1,7 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { postNewUser } from '../../services/apiService';
 import { initialUser } from '../../helpers/initialValues';
+import { postNewUser } from '../../api/user';
 
 export default function AddNewUser() {
   const { push } = useHistory();

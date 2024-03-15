@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { getUserById } from '../../services/apiService';
-import { IRouteParams } from '../../interface/interface';
+
+import { IRouteParams } from '../../types/interface';
 import { initialUser } from '../../helpers/initialValues';
+import { getUserById } from '../../api/user';
 
 export default function ViewUser(): JSX.Element {
   const { userId } = useParams<IRouteParams>();

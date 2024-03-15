@@ -1,8 +1,9 @@
 import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import { Link, useHistory, useParams } from 'react-router-dom';
-import { getUserById, putNewUserById } from '../../services/apiService';
-import { IRouteParams } from '../../interface/interface';
+
+import { IRouteParams } from '../../types/interface';
 import { initialUser } from '../../helpers/initialValues';
+import { putNewUserById, getUserById } from '../../api/user';
 
 export default function EditUser(): JSX.Element {
   const { push } = useHistory();

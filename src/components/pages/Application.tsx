@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { getAllUsers, deleteUserById } from '../../services/apiService';
-import { IRouteParams } from '../../interface/interface';
+
+import { IRouteParams } from '../../types/interface';
 import { Redirect, Link } from 'react-router-dom';
 import { IInitialUser } from '../../helpers/initialValues';
 import { spinner, stopSpinner } from '../utilities/spinner';
+import { deleteUserById, getAllUsers } from '../../api/user';
 
 export default function Application(): JSX.Element {
   const [users, setUsers] = useState([]);
