@@ -12,20 +12,18 @@ export const getAllEvents = async () =>
       throw new Error(`Network response was not ok ${error}`);
     });
 
-export const postNewEvent = async (newEvent: { title: string; date: string }) => {
-  return await api
+export const postNewEvent = async (newEvent: { title: string; date: string }) =>
+  await api
     .post('/events/', newEvent)
     .then(({ data }) => data)
     .catch((error) => {
       throw new Error(`Network response was not ok ${error}`);
     });
-};
 
-export const deleteEventById = async (eventId: string) => {
-  return await api
+export const deleteEventById = async (eventId: string) =>
+  await api
     .delete(`/events/${eventId}`)
     .then(({ data }) => data)
     .catch((error) => {
       throw new Error(`Network response was not ok ${error}`);
     });
-};

@@ -1,10 +1,11 @@
-import '@fullcalendar/core/vdom';
+import '@fullcalendar/react/dist/vdom';
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 import FullCalendar, { DatePointApi, EventClickArg } from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
+
 import { getAllEvents, deleteEventById, postNewEvent } from '../../../api/calendar';
 
 export default function Calendar(): JSX.Element {
