@@ -32,10 +32,7 @@ export const loginUser = async (loginParams: INewUserCredentials) => {
           sessionStorage.setItem('token', btoa(`${loginParams.name}${loginParams.password}`));
 
           login = true;
-        } else {
-          alert('Try again to get access !');
         }
-
         return login;
       });
   } catch (error) {

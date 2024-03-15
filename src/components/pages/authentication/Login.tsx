@@ -2,6 +2,7 @@ import React, { ChangeEvent, useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { INewUserCredentials } from '../../../types/interface';
 import { loginUser } from '../../../api/authentication';
+import { toast } from 'react-toastify';
 
 export default function Login(): JSX.Element {
   const [isLogIn, setIsLogIn] = useState(false);
@@ -23,6 +24,16 @@ export default function Login(): JSX.Element {
     const isLogin = await loginUser(loginParams);
 
     setIsLogIn(isLogin);
+
+    if (isLogin) {
+      toast.success('Successfully logged in!', {
+        className: 'toast-message',
+      });
+    } else{
+      toast.error('Ooops... something went wrong!', {
+        className: 'toast-message',
+      });
+    }
   };
 
   if (isLogIn) {

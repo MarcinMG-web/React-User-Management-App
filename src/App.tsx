@@ -19,6 +19,9 @@ import EditUser from './components/users/EditUser';
 import ProtectedRoute from './components/pages/ProtectedRoute';
 import Calendar from './components/pages/calander/Calendar';
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export default function App(): JSX.Element {
   return (
     <Router>
@@ -41,6 +44,7 @@ export default function App(): JSX.Element {
           <Route exact path='/calendar' component={Calendar} />
           <Route component={NotFound} />
         </Switch>
+        <ToastContainer />
       </div>
     </Router>
   );

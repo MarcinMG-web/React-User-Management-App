@@ -2,6 +2,7 @@ import React, { ChangeEvent, useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { IRegisterNewUser } from '../../../types/interface';
 import { registerNewUser } from '../../../api/authentication';
+import { toast } from 'react-toastify';
 
 export default function Registration(): JSX.Element {
   const [isRegister, setRegister] = useState(false);
@@ -28,8 +29,15 @@ export default function Registration(): JSX.Element {
     if (name && password && email) {
       await registerNewUser(registerCredentials);
       setRegister(true);
+
+      toast.success('Successful registration!', {
+        className: 'toast-message',
+      });
+
     } else {
-      alert('Try register to get access !');
+      toast.error('Ooops... something went wrong!', {
+        className: 'toast-message',
+      });
     }
   };
 

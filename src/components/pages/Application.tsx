@@ -5,6 +5,7 @@ import { Redirect, Link } from 'react-router-dom';
 import { IInitialUser } from '../../helpers/initialValues';
 import { spinner, stopSpinner } from '../utilities/spinner';
 import { deleteUserById, getAllUsers } from '../../api/user';
+import { toast } from 'react-toastify';
 
 export default function Application(): JSX.Element {
   const [users, setUsers] = useState([]);
@@ -31,6 +32,10 @@ export default function Application(): JSX.Element {
   const isSignOut = (): void => {
     sessionStorage.clear();
     setIsLogout(true);
+
+    toast.info('Successfully logged out!', {
+      className: 'toast-message',
+    });
   };
 
   // Sort

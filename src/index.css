@@ -113,3 +113,7 @@
   position: fixed;
   background-color: black;
 }
+
+.toast-message{
+  background-color: transparent !important;
+}
