@@ -17,6 +17,7 @@
     "@types/react": "^18.2.32",
     "@types/react-dom": "^18.2.14",
     "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@vitejs/plugin-react": "^4.2.1",
     "axios": "^0.21.1",
     "bootstrap": "^4.5.3",
     "concurrently": "^5.3.0",
@@ -27,15 +28,17 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^5.0.1",
     "typescript": "^5.2.2",
+    "vite": "^5.1.6",
+    "vite-tsconfig-paths": "^4.3.2",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "vite",
     "json-server": "json-server --watch db.json --port 3003",
     "start:mocked": "concurrently \"npm start\" \"npm run json-server\"",
-    "build": "react-scripts build",
+    "build": "tsc && vite build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "preview": "vite preview",
     "lint": "eslint src/**/*.{js,jsx,ts,tsx,json}",
     "lint:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx,json}'",
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"

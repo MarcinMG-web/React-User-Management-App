@@ -1,3 +1,4 @@
+import '@fullcalendar/core/vdom';
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
@@ -74,4 +75,3 @@ export default function Calendar(): JSX.Element {
     </div>
   );
 }
-

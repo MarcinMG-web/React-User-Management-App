@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const api = axios.create({
-  baseURL: process.env.REACT_APP_API_URL,
+  baseURL: import.meta.env.VITE_APP_API_BASE_URL,
   headers: { 'X-Requested-With': 'XMLHttpRequest' },
   timeout: 1000,
   responseType: 'json',
