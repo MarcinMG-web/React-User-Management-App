@@ -3,11 +3,12 @@ import React, { useState, useEffect } from 'react';
 import { IRouteParams } from '../../types/interface';
 import { Redirect, Link } from 'react-router-dom';
 import { IInitialUser } from '../../helpers/initialValues';
-import { spinner, stopSpinner } from '../utilities/spinner';
+
 import { deleteUserById, getAllUsers } from '../../api/user';
 import { toast } from 'react-toastify';
-import { CSVLink } from 'react-csv';
-import dayjs from 'dayjs';
+
+import DownloadCSV from '../utilities/DownloadCSV';
+import Spinner, { spinner, stopSpinner } from '../utilities/Spinner';
 
 export default function Application(): JSX.Element {
   const [users, setUsers] = useState([]);
@@ -65,6 +66,7 @@ export default function Application(): JSX.Element {
     stopSpinner();
     setUsers(user);
   };
+
   // Search
   const search = (arrayOfUsers: IInitialUser[]): IInitialUser[] => {
     const trimQueryText = queryText.toLowerCase().trim();
@@ -81,15 +83,6 @@ export default function Application(): JSX.Element {
   if (isLogout) {
     return <Redirect to='/' />;
   }
-
-  // CSV
-  const headers = Object.keys(users[0] || {});
-  const date = dayjs().format('MMMM D, YYYY h:mm A');
-  const downloadCSV = () => {
-    toast.info('Successfully download csv!', {
-      className: 'toast-message',
-    });
-  };
 
   return (
     <div className='container'>
@@ -113,11 +106,7 @@ export default function Application(): JSX.Element {
         </div>
       </div>
 
-      <div className='d-flex ml-auto p-2 float-right'>
-        <CSVLink data={users} headers={headers} filename={`main_table_${date}.csv`} onClick={downloadCSV}>
-          Download CSV
-        </CSVLink>
-      </div>
+      <DownloadCSV users={users} />
 
       <input
         type='text'
@@ -128,7 +117,9 @@ export default function Application(): JSX.Element {
         onChange={(e) => setQueryText(e.target.value)}
         autoComplete='off'
       />
-      <div id='spinner' className='loading'></div>
+
+      <Spinner />
+
       <div className='dataTable'>
         <div className='scrollContainer'>
           <div className='table-responsive text-center '>

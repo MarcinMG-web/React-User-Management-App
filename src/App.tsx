@@ -16,7 +16,7 @@ import AddNewUser from './components/users/AddNewUser';
 import ViewUser from './components/users/ViewUser';
 import EditUser from './components/users/EditUser';
 
-import ProtectedRoute from './components/pages/ProtectedRoute';
+import ProtectedRoute from './components/utilities/ProtectedRoute';
 import Calendar from './components/pages/calander/Calendar';
 
 import { ToastContainer } from 'react-toastify';

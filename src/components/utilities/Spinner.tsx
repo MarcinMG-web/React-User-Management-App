@@ -1,10 +1,15 @@
-/* eslint-disable  @typescript-eslint/no-non-null-assertion */
+import React from 'react';
+
 export const spinner = (): void => {
   document.getElementById('spinner')!.style.display = 'flex';
 };
-export const stopSpinner = () => {
+export const stopSpinner = (): void => {
   const spinnerDelay = () => {
     document.getElementById('spinner')!.style.display = 'none';
   };
   setTimeout(spinnerDelay, 500);
 };
+
+export default function Spinner(): JSX.Element {
+  return <div id='spinner' className='loading'></div>;
+}
