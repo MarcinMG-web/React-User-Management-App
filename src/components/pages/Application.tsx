@@ -27,6 +27,10 @@ export default function Application(): JSX.Element {
   const deleteUser = async (userId: IRouteParams['userId']): Promise<void> => {
     await deleteUserById(userId);
     getUsers();
+
+    toast.info('Successfully deleted user!', {
+      className: 'toast-message',
+    });
   };
 
   const isSignOut = (): void => {

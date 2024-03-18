@@ -2,6 +2,7 @@ import React, { ChangeEvent, FormEvent, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { initialUser } from '../../helpers/initialValues';
 import { postNewUser } from '../../api/user';
+import { toast } from 'react-toastify';
 
 export default function AddNewUser() {
   const { push } = useHistory();
@@ -16,13 +17,18 @@ export default function AddNewUser() {
   };
 
   const handleSubmitForm = (e: FormEvent<HTMLFormElement>): void => {
+    e.preventDefault();
+    
     const setNewUserForFrom = async () => {
       await postNewUser(newUser);
       push('/application');
     };
 
     setNewUserForFrom();
-    e.preventDefault();
+
+    toast.info('Successfully created new user!', {
+      className: 'toast-message',
+    });
   };
 
   return (

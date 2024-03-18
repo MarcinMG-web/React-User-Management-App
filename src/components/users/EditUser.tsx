@@ -4,6 +4,7 @@ import { Link, useHistory, useParams } from 'react-router-dom';
 import { IRouteParams } from '../../types/interface';
 import { initialUser } from '../../helpers/initialValues';
 import { putNewUserById, getUserById } from '../../api/user';
+import { toast } from 'react-toastify';
 
 export default function EditUser(): JSX.Element {
   const { push } = useHistory();
@@ -23,10 +24,14 @@ export default function EditUser(): JSX.Element {
   }, []);
 
   const handleSubmitForm = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
+    e.preventDefault();
     await putNewUserById(userId, newUser);
 
     push('/application');
-    e.preventDefault();
+
+    toast.info('Successfully edit user!', {
+      className: 'toast-message',
+    });
   };
 
   const loadUser = async (): Promise<void> => {
