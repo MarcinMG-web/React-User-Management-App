@@ -6,6 +6,8 @@ import { IInitialUser } from '../../helpers/initialValues';
 import { spinner, stopSpinner } from '../utilities/spinner';
 import { deleteUserById, getAllUsers } from '../../api/user';
 import { toast } from 'react-toastify';
+import { CSVLink } from 'react-csv';
+import dayjs from 'dayjs';
 
 export default function Application(): JSX.Element {
   const [users, setUsers] = useState([]);
@@ -80,10 +82,13 @@ export default function Application(): JSX.Element {
     return <Redirect to='/' />;
   }
 
+  // CSV
+  const headers = Object.keys(users[0] || {});
+  const date = dayjs().format('MMMM D, YYYY h:mm A');
+
   return (
     <div className='container'>
       <span className='text-danger'>{`Welcome ${nameFromSessionStorage}`}</span>
-
       <div className='py-4 d-flex justify-content-between'>
         <div className='d-flex  p-2'>
           <button type='submit' className='btn btn-outline-secondary btn-sm' onClick={isSignOut}>
@@ -102,6 +107,13 @@ export default function Application(): JSX.Element {
           </Link>
         </div>
       </div>
+
+      <div className='d-flex ml-auto p-2 float-right'>
+        <CSVLink data={users} headers={headers} filename={`main_table_${date}.csv`}>
+          Download CSV
+        </CSVLink>
+      </div>
+
       <input
         type='text'
         className='form-control mt-3 mb-4'
@@ -111,9 +123,7 @@ export default function Application(): JSX.Element {
         onChange={(e) => setQueryText(e.target.value)}
         autoComplete='off'
       />
-
       <div id='spinner' className='loading'></div>
-
       <div className='dataTable'>
         <div className='scrollContainer'>
           <div className='table-responsive text-center '>

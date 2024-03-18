@@ -12,3 +12,19 @@ export interface IRegisterNewUser {
   password: string;
   email: string;
 }
+
+export interface UserData {
+  id: number;
+  name: string;
+  username: string;
+  email: string;
+  street: string;
+  suite: string;
+  city: string;
+  zipcode: string;
+  phone: string;
+  website: string;
+  company: string;
+  catchPhrase: string;
+  bs: string;
+}
