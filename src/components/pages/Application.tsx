@@ -85,6 +85,11 @@ export default function Application(): JSX.Element {
   // CSV
   const headers = Object.keys(users[0] || {});
   const date = dayjs().format('MMMM D, YYYY h:mm A');
+  const downloadCSV = () => {
+    toast.info('Successfully download csv!', {
+      className: 'toast-message',
+    });
+  };
 
   return (
     <div className='container'>
@@ -109,7 +114,7 @@ export default function Application(): JSX.Element {
       </div>
 
       <div className='d-flex ml-auto p-2 float-right'>
-        <CSVLink data={users} headers={headers} filename={`main_table_${date}.csv`}>
+        <CSVLink data={users} headers={headers} filename={`main_table_${date}.csv`} onClick={downloadCSV}>
           Download CSV
         </CSVLink>
       </div>
